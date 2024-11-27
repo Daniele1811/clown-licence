@@ -1,0 +1,70 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      
+
+      <form class="form" action="/path/of/next/page" method="post">
+
+        
+  
+  <div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="signIn-hint" action="/path/of/next/page" method="post">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading">
+        What identity document will you provide?
+      </h1>
+      <br>
+    </legend>
+    <div id="signIn-hint" class="govuk-hint">
+      You’ll need to prove your identity with a valid UK passport or driving licence
+    </div>
+    <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="identityDocument" name="identityDocument" type="radio" value="passport" aria-describedby="signIn-item-hint">
+        <label class="govuk-label govuk-radios__label" for="identityDocument">
+          <strong>Passport</strong>
+        </label>
+        <div id="signIn-item-hint" class="govuk-hint govuk-radios__hint">
+          You’ll need to provide a valid UK passport, or if using a passport or identity card from a country other than the UK, provide evidence of your right to remain in the UK
+        </div>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="signIn-2" name="signIn" type="radio" value="govuk-one-login" aria-describedby="signIn-2-item-hint">
+        <label class="govuk-label govuk-radios__label" for="signIn-2">
+          <strong>UK driving licence</strong>
+        </label>
+        <div id="signIn-2-item-hint" class="govuk-hint govuk-radios__hint">
+          If you don’t have a UK driving licence, you must provide your passport or national identity card as proof of identity
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+      
+  
+</form>
+      
+<br>
+      <div class="govuk-!-margin-top-5">
+        {{ govukButton({ text: "Save and continue", href: "check-answers-personal-details" }) }}
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

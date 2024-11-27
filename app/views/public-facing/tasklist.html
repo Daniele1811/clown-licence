@@ -1,0 +1,201 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Task list template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{{ govukBackLink({
+  
+  href: "javascript: window.history.go(-1)"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+
+      <h1 class="govuk-heading-l">Tasks you need to complete to apply for a licence</h1>
+
+      <h2 class="govuk-heading-m">Personal details</h2>
+
+      {% set completedStatus = {
+        text: "Completed"
+      } %}
+
+      {% set incompleteStatus = {
+        tag: {
+          text: "Incomplete",
+          classes: "govuk-tag--blue"
+        }
+      } %}
+
+      {# To switch between the completed and incomplete statues, use some inline logic within the component below, like this: "status: (completedStatus if ... else incompleteStatus)" #}
+
+      {{ govukTaskList({
+        idPrefix: "first-section",
+        items: [
+          {
+            title: {
+              text: "Identity details"
+            },
+            href: "personal-details",
+            status: incompleteStatus
+          },
+          {
+            title: {
+              text: "Address"
+            },
+            href: "#",
+            status: incompleteStatus
+          },
+          {
+            title: {
+              text: "Contact details"
+            },
+            href: "#",
+            status: incompleteStatus
+          }
+        ]
+      }) }}
+
+      
+      <h2 class="govuk-heading-m govuk-!-margin-top-5">Skills</h2>
+
+      {{ govukTaskList({
+        idPrefix: "second-section",
+        items: [
+          {
+            title: {
+              text: "Name of fourth task"
+            },
+            href: "#",
+            status: incompleteStatus
+          },
+          {
+            title: {
+              text: "Name of fifth task"
+            },
+            href: "#",
+            status: incompleteStatus
+          },
+          {
+            title: {
+              text: "Name of sixth task"
+            },
+            href: "#",
+            status: incompleteStatus
+          },
+          {
+            title: {
+              text: "Name of seventh task"
+            },
+            href: "#",
+            status: incompleteStatus
+          },
+          {
+            title: {
+              text: "Name of eighth task"
+            },
+            href: "#",
+            status: incompleteStatus
+          }
+        ]
+      }) }}
+<h2 class="govuk-heading-m govuk-!-margin-top-5">Places of work</h2>
+
+      {{ govukTaskList({
+        idPrefix: "third-section",
+        items: [
+          {
+            title: {
+              text: "Name of ninth task"
+            },
+            href: "#",
+            status: incompleteStatus
+          },
+          {
+            title: {
+              text: "Name of tenth task"
+            },
+            href: "#",
+            status: incompleteStatus
+          },
+          {
+            title: {
+              text: "Name of eleventh task"
+            },
+            href: "#",
+            status: incompleteStatus
+          },
+          {
+            title: {
+              text: "Name of twelth task"
+            },
+            href: "#",
+            status: incompleteStatus
+          },
+          {
+            title: {
+              text: "Name of thirteenth task"
+            },
+            href: "#",
+            status: incompleteStatus
+          }
+        ]
+      }) }}
+<h2 class="govuk-heading-m govuk-!-margin-top-5">Update evidence</h2>
+
+      {{ govukTaskList({
+        idPrefix: "fourth-section",
+        items: [
+          {
+            title: {
+              text: "Name of fourteenth task"
+            },
+            href: "#",
+            status: incompleteStatus
+          },
+          {
+            title: {
+              text: "Name of fifteenth task"
+            },
+            href: "#",
+            status: incompleteStatus
+          },
+          {
+            title: {
+              text: "Name of sixteenth task"
+            },
+            href: "#",
+            status: incompleteStatus
+          },
+          {
+            title: {
+              text: "Name of seventeenth task"
+            },
+            href: "#",
+            status: incompleteStatus
+          },
+          {
+            title: {
+              text: "Name of eighteenth task"
+            },
+            href: "#",
+            status: incompleteStatus
+          }
+        ]
+      }) }}
+
+      <div class="govuk-!-margin-top-5">
+        {{ govukButton({ text: "Apply", href: "personal-details" }) }}
+      </div>
+
+    </div>
+  </div>
+{% endblock %}
