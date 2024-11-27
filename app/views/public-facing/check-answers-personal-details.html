@@ -13,7 +13,7 @@
 
 {% block content %}
 
-      <form class="form" action="/path/of/next/page" method="post">
+      <form class="form" action="/public-facing/tasklist" method="post" novalidate>
 
       <div class="govuk-width-container">
   
@@ -27,11 +27,12 @@
             <dt class="govuk-summary-list__key">
               Name
             </dt>
-            <dd class="govuk-summary-list__value">
-              
+            <dd class="govuk-summary-list__value">    
+           {{ data["first-name"]}} {{data["last-name"] }}
+
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden">Name</span></a>
+              <a class="govuk-link" href="/public-facing/personal-details">Change<span class="govuk-visually-hidden">name</span></a>
             </dd>
           </div>
           <div class="govuk-summary-list__row">
@@ -39,10 +40,11 @@
               Date of birth
             </dt>
             <dd class="govuk-summary-list__value">
-              
+          {{ data['dob-day'] + " " + data['dob-month'] | toMonth + " " + data['dob-year'] }}
+          {{ data['dob-day']}} {{ data['dob-month']}} {{ data['dob-year']}}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
+              <a class="govuk-link" href="/public-facing/birth-date">Change<span class="govuk-visually-hidden">birth-date</span></a>
             </dd>
           </div>
           
@@ -51,10 +53,10 @@
               Identity document
             </dt>
             <dd class="govuk-summary-list__value">
-              
+              {{ data["identity-document"] }} 
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden">Identity document</span></a>
+              <a class="govuk-link" href="/public-facing/identity-document">Change<span class="govuk-visually-hidden">identity-document</span></a>
             </dd>
           </div>
           </div>
@@ -69,9 +71,17 @@
     </div>
 
         <h2 class="govuk-heading-m">Now accept and submit your changes</h2>
-          <button type="submit" class="govuk-button" data-module="govuk-button">
-            Submit and continue
-          </button>
+          <form action="/public-facing/tasklist" method="post" novalidate>
+
+
+{{ govukButton({
+
+text: "Accept and submit"
+
+}) }}
+
+
+</form>
        </main>
 </div>  
   
