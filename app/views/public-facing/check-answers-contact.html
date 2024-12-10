@@ -50,42 +50,41 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds-from-desktop">
         <h1 class="govuk-heading-l">Check your answers before continuing to the next section</h1>
-        <h2 class="govuk-heading-m">Personal details</h2>
+        <h2 class="govuk-heading-m">Contact details</h2>
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Name
+              Telephone
             </dt>
             <dd class="govuk-summary-list__value">    
-           {{ data["first-name"]}} {{data["last-name"] }}
+           {{ data["telephone"] }}
 
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/public-facing/personal-details">Change<span class="govuk-visually-hidden">name</span></a>
+              <a class="govuk-link" href="telephone">Change<span class="govuk-visually-hidden">telephone</span></a>
             </dd>
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Date of birth
+              Email
             </dt>
             <dd class="govuk-summary-list__value">
-          {{ data['dob-day'] + " " + data['dob-month'] | toMonth + " " + data['dob-year'] }}
-          {{ data['dob-day']}} {{ data['dob-month']}} {{ data['dob-year']}}
+          {{ data["email"] }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/public-facing/birth-date">Change<span class="govuk-visually-hidden">birth-date</span></a>
+              <a class="govuk-link" href="email">Change<span class="govuk-visually-hidden">email</span></a>
             </dd>
           </div>
           
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Identity document
+              Preferred method of contact
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data["identity-document"] }} 
+              {{ data["preferred-contact"] }} 
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/public-facing/identity-document">Change<span class="govuk-visually-hidden">identity-document</span></a>
+              <a class="govuk-link" href="preferred-contact">Change<span class="govuk-visually-hidden">preferred-contact</span></a>
             </dd>
           </div>
           </div>
@@ -100,7 +99,7 @@
     </div>
 
         <h2 class="govuk-heading-m">Now accept and submit your changes</h2>
-          <form action="/public-facing/tasklist" method="post" novalidate>
+          <form action="tasklist" method="post" novalidate>
 
 
 {{ govukButton({

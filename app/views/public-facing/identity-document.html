@@ -5,6 +5,35 @@
 {% endblock %}
 
 {% block beforeContent %}
+{% from "govuk/components/service-navigation/macro.njk" import govukServiceNavigation %}
+
+{{ govukServiceNavigation({
+  serviceName: "Clown licence",
+  serviceUrl: "#",
+  navigation: [
+      {
+      href: "#",
+      text: "Start"
+      },
+    {
+      href: "#",
+      text: "Application",
+      active: true
+    },
+    {
+      href: "#",
+      text: "Documents"
+    },
+    {
+      href: "#",
+      text: "Declaration"
+    },
+    {
+      href: "#",
+      text: "Pay"
+    }
+  ]
+}) }}
   {{ govukBackLink({
   text: "Back",
   href: "javascript:window.history.back()"
@@ -35,7 +64,7 @@
     </div>
     <div class="govuk-radios" data-module="govuk-radios">
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="identityDocument" name="identityDocument" type="radio" value="passport" aria-describedby="signIn-item-hint">
+        <input class="govuk-radios__input" id="identityDocument" name="identityDocument" type="radio" value="passport" aria-describedby="identityDocument-item-hint">
         <label class="govuk-label govuk-radios__label" for="identityDocument">
           <strong>Passport</strong>
         </label>
@@ -44,8 +73,8 @@
         </div>
       </div>
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="signIn-2" name="signIn" type="radio" value="govuk-one-login" aria-describedby="signIn-2-item-hint">
-        <label class="govuk-label govuk-radios__label" for="signIn-2">
+        <input class="govuk-radios__input" id="identityDocument-2" name="identityDocument-2" type="radio" value="driving-licence" aria-describedby="identityDocument-2-item-hint">
+        <label class="govuk-label govuk-radios__label" for="identityDocument-2">
           <strong>UK driving licence</strong>
         </label>
         <div id="signIn-2-item-hint" class="govuk-hint govuk-radios__hint">
@@ -62,7 +91,7 @@
       
 <br>
       <div class="govuk-!-margin-top-5">
-        {{ govukButton({ text: "Save and continue", href: "/public-facing/check-answers-personal-details" }) }}
+        {{ govukButton({ text: "Save and continue", href: "check-answers-personal-details" }) }}
       </div>
     </div>
   </div>

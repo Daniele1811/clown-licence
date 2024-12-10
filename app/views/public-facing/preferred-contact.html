@@ -1,0 +1,84 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/service-navigation/macro.njk" import govukServiceNavigation %}
+
+{{ govukServiceNavigation({
+  serviceName: "Clown licence",
+  serviceUrl: "#",
+  navigation: [
+      {
+      href: "#",
+      text: "Start"
+      },
+    {
+      href: "#",
+      text: "Application",
+      active: true
+    },
+    {
+      href: "#",
+      text: "Documents"
+    },
+    {
+      href: "#",
+      text: "Declaration"
+    },
+    {
+      href: "#",
+      text: "Pay"
+    }
+  ]
+}) }}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        How would you like to be contacted?
+      </h1>
+<p>We will contact you if we need further evidence or have any questions about your application.</p>
+<p>We will try by your preferred method first or other methods if this is not successful.</p>
+      <form class="form" action="/public-facing/check-answers-contact" method="post">
+
+        
+   <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="preferred-contact" name="preferred-contact" type="radio" value="email" aria-describedby="preferred-contact-hint">
+        <label class="govuk-label govuk-radios__label" for="preferred-contact">
+          <strong>Email</strong>
+        </label>
+       
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="preferred-contact-2" name="preferred-contact-2" type="radio" value="phone" aria-describedby="preferred-contact-2-item-hint">
+        <label class="govuk-label govuk-radios__label" for="preferred-contact-2">
+          <strong>Phone</strong>
+        </label>
+        
+      </div>
+    </div>
+
+<br>
+<div class="govuk-!-margin-top-5">
+        {{ govukButton({ text: "Save and continue", href: "check-answers-contact" }) }}
+      </div>
+ 
+      </form>
+ 
+
+    </div>
+  </div>
+ 
+{% endblock %}

@@ -5,6 +5,35 @@
 {% endblock %}
 
 {% block beforeContent %}
+{% from "govuk/components/service-navigation/macro.njk" import govukServiceNavigation %}
+
+{{ govukServiceNavigation({
+  serviceName: "Clown licence",
+  serviceUrl: "#",
+  navigation: [
+      {
+      href: "#",
+      text: "Start"
+      },
+    {
+      href: "#",
+      text: "Application",
+      active: true
+    },
+    {
+      href: "#",
+      text: "Documents"
+    },
+    {
+      href: "#",
+      text: "Declaration"
+    },
+    {
+      href: "#",
+      text: "Pay"
+    }
+  ]
+}) }}
 {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
 
 {{ govukBackLink({
@@ -58,7 +87,7 @@
             title: {
               text: "Contact details"
             },
-            href: "#",
+            href: "telephone",
             status: incompleteStatus
           }
         ]

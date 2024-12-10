@@ -11,18 +11,35 @@
 
 {% block beforeContent %}
 
-  {{ govukBreadcrumbs({
-    items: [
-      
+  {% from "govuk/components/service-navigation/macro.njk" import govukServiceNavigation %}
+
+{{ govukServiceNavigation({
+  serviceName: "Clown licence",
+  serviceUrl: "#",
+  navigation: [
       {
-        text: "Licences",
-        href: "https://www.gov.uk/browse/business/licences"
+      href: "#",
+      text: "Start",
+      active: true
       },
-      {
-        text: "Application"
-      }
-    ]
-  }) }}
+    {
+      href: "#",
+      text: "Application"
+    },
+    {
+      href: "#",
+      text: "Documents"
+    },
+    {
+      href: "#",
+      text: "Declaration"
+    },
+    {
+      href: "#",
+      text: "Pay"
+    }
+  ]
+}) }}
 
 {% endblock %}
 

@@ -5,6 +5,35 @@
 {% endblock %}
 
 {% block beforeContent %}
+{% from "govuk/components/service-navigation/macro.njk" import govukServiceNavigation %}
+
+{{ govukServiceNavigation({
+  serviceName: "Clown licence",
+  serviceUrl: "#",
+  navigation: [
+      {
+      href: "#",
+      text: "Start"
+      },
+    {
+      href: "#",
+      text: "Application",
+      active: true
+    },
+    {
+      href: "#",
+      text: "Documents"
+    },
+    {
+      href: "#",
+      text: "Declaration"
+    },
+    {
+      href: "#",
+      text: "Pay"
+    }
+  ]
+}) }}
   {{ govukBackLink({
   text: "Back",
   href: "javascript:window.history.back()"
@@ -35,13 +64,13 @@
     </div>
     <div class="govuk-radios" data-module="govuk-radios">
       <div class="govuk-radios__item" >
-        <input class="govuk-radios__input" id="address" name="address" type="radio" value="yes~/public-facing/address-uk" aria-describedby="address-hint" >
+        <input class="govuk-radios__input" id="address" name="address" type="radio" value="yes~/address-uk" aria-describedby="address-hint" >
         <label class="govuk-label govuk-radios__label" for="address" >
           <strong>Yes</strong>
         </label>
         </div>
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="address2" name="address2" type="radio" value="no~/public-facing/address-int" aria-describedby="address2-hint">
+        <input class="govuk-radios__input" id="address2" name="address2" type="radio" value="no~/address-int" aria-describedby="address2-hint">
         <label class="govuk-label govuk-radios__label" for="address2">
           <strong>No</strong>
         </label>
@@ -57,7 +86,7 @@
       
 <br>
       <div class="govuk-!-margin-top-5">
-        {{ govukButton({ text: "Save and continue"}) }}
+        {{ govukButton({ text: "Save and continue" }) }}
       </div>
     </div>
   </div>
