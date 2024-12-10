@@ -16,7 +16,11 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      
+ <form class="form" action="/public-facing/check-answers-address" method="post">
+
+        
+  
+  <div class="govuk-form-group">     
 
       <fieldset class="govuk-fieldset">
   <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
@@ -61,10 +65,10 @@
     <input class="govuk-input govuk-!-width-two-thirds" id="address-country" name="addressCountry" type="text" autocomplete="country">
   </div>
 </fieldset>
-      
+     </form> 
 <br>
       <div class="govuk-!-margin-top-5">
-        {{ govukButton({ text: "Save and continue", href: "check-answers-personal-details" }) }}
+        {{ govukButton({ text: "Save and continue", href: "check-answers-address" }) }}
       </div>
     </div>
   </div>
