@@ -57,11 +57,11 @@
               Name
             </dt>
             <dd class="govuk-summary-list__value">    
-           {{ data["first-name"]}} {{data["last-name"] }}
+           {{ data["firstName"] }}  {{ data["lastName"] }}
 
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/public-facing/personal-details">Change<span class="govuk-visually-hidden">name</span></a>
+              <a class="govuk-link" href="personal-details">Change<span class="govuk-visually-hidden">name</span></a>
             </dd>
           </div>
           <div class="govuk-summary-list__row">
@@ -69,8 +69,7 @@
               Date of birth
             </dt>
             <dd class="govuk-summary-list__value">
-          {{ data['dob-day'] + " " + data['dob-month'] | toMonth + " " + data['dob-year'] }}
-          {{ data['dob-day']}} {{ data['dob-month']}} {{ data['dob-year']}}
+          {{ data['dob-day']}} {{ data['dob-month']| toMonth }} {{ data['dob-year']}}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="/public-facing/birth-date">Change<span class="govuk-visually-hidden">birth-date</span></a>
@@ -82,7 +81,7 @@
               Identity document
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data["identity-document"] }} 
+              {{ data["identityDocument"] }} 
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="/public-facing/identity-document">Change<span class="govuk-visually-hidden">identity-document</span></a>

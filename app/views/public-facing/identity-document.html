@@ -47,12 +47,12 @@
 
       
 
-      <form class="form" action="/check-answers-personal-details" method="post">
+      <form class="form" action="check-answers-personal-details" method="post">
 
         
   
   <div class="govuk-form-group">
-  <fieldset class="govuk-fieldset" aria-describedby="signIn-hint" action="/public-facing/check-answers-personal-details" method="post">
+  <fieldset class="govuk-fieldset">
     <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
       <h1 class="govuk-fieldset__heading">
         What identity document will you provide?
@@ -73,7 +73,7 @@
         </div>
       </div>
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="identityDocument-2" name="identityDocument-2" type="radio" value="driving-licence" aria-describedby="identityDocument-2-item-hint">
+        <input class="govuk-radios__input" id="identityDocument-2" name="identityDocument" type="radio" value="driving-licence" aria-describedby="identityDocument-2-item-hint">
         <label class="govuk-label govuk-radios__label" for="identityDocument-2">
           <strong>UK driving licence</strong>
         </label>
@@ -85,14 +85,14 @@
   </fieldset>
 </div>
 
-      
+     <div class="govuk-!-margin-top-5">
+        {{ govukButton({ text: "Save and continue"}) }}
+      </div> 
   
 </form>
       
 <br>
-      <div class="govuk-!-margin-top-5">
-        {{ govukButton({ text: "Save and continue", href: "check-answers-personal-details" }) }}
-      </div>
+      
     </div>
   </div>
 
