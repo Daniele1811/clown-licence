@@ -61,7 +61,7 @@
 
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="telephone">Change<span class="govuk-visually-hidden">telephone</span></a>
+              <a class="govuk-link" href="/public-facing/telephone">Change<span class="govuk-visually-hidden">telephone</span></a>
             </dd>
           </div>
           <div class="govuk-summary-list__row">
@@ -72,7 +72,7 @@
           {{ data["email"] }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="email">Change<span class="govuk-visually-hidden">email</span></a>
+              <a class="govuk-link" href="/public-facing/email">Change<span class="govuk-visually-hidden">email</span></a>
             </dd>
           </div>
           
@@ -84,7 +84,7 @@
               {{ data["preferred-contact"] }} 
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="preferred-contact">Change<span class="govuk-visually-hidden">preferred-contact</span></a>
+              <a class="govuk-link" href="/public-facing/preferred-contact">Change<span class="govuk-visually-hidden">preferred-contact</span></a>
             </dd>
           </div>
           </div>
@@ -94,23 +94,20 @@
         <form action="/form-handler" method="post" novalidate>
           <input type="hidden" name="answers-checked" value="true">
           
-        </form>
-         </div>
+</form>
+        </div>
     </div>
 
         <h2 class="govuk-heading-m">Now accept and submit your changes</h2>
           <form action="tasklist" method="post" novalidate>
 
-
-{{ govukButton({
-
-text: "Accept and submit"
-
-}) }}
+{{ govukButton({text: "Accept and submit"}) }}
 
 
-</form>
+
+
        </main>
+       </form>
 </div>  
   
   

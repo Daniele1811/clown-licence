@@ -61,33 +61,35 @@
 
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/public-facing/personal-details">Change<span class="govuk-visually-hidden">name</span></a>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Address
-            </dt>
-            <dd class="govuk-summary-list__value">
-          {{ data['dob-day'] + " " + data['dob-month'] | toMonth + " " + data['dob-year'] }}
-          {{ data['dob-day']}} {{ data['dob-month']}} {{ data['dob-year']}}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/public-facing/birth-date">Change<span class="govuk-visually-hidden">birth-date</span></a>
+              <a class="govuk-link" href="address-qu">Change<span class="govuk-visually-hidden">address-uk</span></a>
             </dd>
           </div>
           
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Identity document
+              Address
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data["identity-document"] }} 
+               {% if user_answer == 'address-uk' %}
+            <div id="address-uk">
+         {{ data['address-line-1'] + " " + data['address-line-2'] + " " + data['address-town'] + " " + data['address-county'] + " " + data['address-postcode']}}
+          {{ data['address-line-1']}} {{ data['address-line-2']}} {{ data['address-town']}} {{ data['address-county']}} {{ data['address-postcode']}} 
+            
+      </div>
+    {% else %}
+      <div id="address-int">
+        {{ data['address-line-1'] + " " + data['address-line-2'] + " " + data['address-town'] + " " + data['address-county'] + " " + data['address-postcode'] + " " + data['address-country'] }}
+          {{ data['address-line-1']}} {{ data['address-line-2']}} {{ data['address-town']}} {{ data['address-county']}} {{ data['address-postcode']}} {{ data['address-country']}}
+      </div>
+    {% endif %}  
+         
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/public-facing/identity-document">Change<span class="govuk-visually-hidden">identity-document</span></a>
+              <a class="govuk-link" href="/public-facing/address-uk">Change<span class="govuk-visually-hidden">address-uk</span></a>
             </dd>
           </div>
+          
+          
           </div>
         </dl>
         

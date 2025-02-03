@@ -49,26 +49,26 @@
         Your telephone number
       </h1>
 
-      <form class="form" action="/check-answers-contact" method="post">
+      <form class="form" action="email" method="post">
 
         
   <p>We may contact you by telephone if we have any further questions about your application.</p>
   <p>You must notify us immediately if the contact telephone number you provide as part of this application changes.</p>
   
   <div class="govuk-form-group">
-  <label class="govuk-label" for="phone-number">
+  <label class="govuk-label" for="telephone">
     Phone number
   </label>
-  <div id="phone-number-hint" class="govuk-hint">
+  <div id="telephone-hint" class="govuk-hint">
     For international numbers include the country code
   </div>
-  <input class="govuk-input govuk-input--width-20" id="phone-number" name="phoneNumber" type="tel" aria-describedby="phone-number-hint" autocomplete="tel">
+  <input class="govuk-input govuk-input--width-20" id="telephone" name="telephone" type="tel" aria-describedby="telephone-hint" autocomplete="telephone">
 </div>
   
 
 <br>
 <div class="govuk-!-margin-top-5">
-        {{ govukButton({ text: "Save and continue", href: "email" }) }}
+        {{ govukButton({ text: "Save and continue" }) }}
       </div>
  
       </form>
