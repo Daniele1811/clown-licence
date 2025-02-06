@@ -72,30 +72,30 @@
             <dd class="govuk-summary-list__value">
 
                {% if data["address"] == 'yes' %}
-                <div id="address-uk">
+                 <!--<div id="address-uk">-->
                 {{ data["addressLine1"] }}  
                 {{ data["addressLine2"] }}  
                 {{ data["addressTown"] }}  
                 {{ data["addressCounty"] }}  
                 {{ data["addressPostcode"] }}
-                </div>
+                 <!--</div>-->
+                 {% else %}
+                <!--<div id="address-int">-->
+                {{ data["int-addressLine1"] }}  
+                {{ data["int-addressLine2"] }}  
+                {{ data["int-addressTown"] }}  
+                {{ data["addressState"] }}  
+                {{ data["addressPostalCode"] }}  
+                {{ data["addressCountry"] }}
+                <!--</div>-->
+                {% endif %}
                 <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="address-uk">Change<span class="govuk-visually-hidden">address-uk</span></a>
             </dd>
-                {% else %}
-                <div id="address-int">
-                {{ data["addressLine1"] }}  
-                {{ data["addressLine2"] }}  
-                {{ data["addressTown"] }}  
-                {{ data["addressState"] }}  
-                {{ data["addressPostcode"] }}  
-                {{ data["addressCountry"] }}
-                </div>
-                <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="address-int">Change<span class="govuk-visually-hidden">address-int</span></a>
-            </dd>
-                {% endif %}
-            </dd>
+                
+               
+                
+            
 
                <!--{% if user_answer == 'address-uk' %}
             <div id="address-uk">
