@@ -73,20 +73,20 @@
 
                {% if data["address"] == 'yes' %}
                  <!--<div id="address-uk">-->
-                {{ data["addressLine1"] }}  
-                {{ data["addressLine2"] }}  
-                {{ data["addressTown"] }}  
-                {{ data["addressCounty"] }}  
-                {{ data["addressPostcode"] }}
+                {{ data["addressLine1"] }} <br>  
+                {{ data["addressLine2"] }} <br>
+                {{ data["addressTown"] }}  <br>
+                {{ data["addressCounty"] }} <br>
+                {{ data["addressPostcode"] }} <br>
                  <!--</div>-->
                  {% else %}
                 <!--<div id="address-int">-->
-                {{ data["int-addressLine1"] }}  
-                {{ data["int-addressLine2"] }}  
-                {{ data["int-addressTown"] }}  
-                {{ data["addressState"] }}  
-                {{ data["addressPostalCode"] }}  
-                {{ data["addressCountry"] }}
+                {{ data["intAddressLine1"] }}  <br>
+                {{ data["intAddressLine2"] }} <br> 
+                {{ data["intAddressTown"] }}  <br>
+                {{ data["addressState"] }}  <br>
+                {{ data["addressPostalCode"] }} <br> 
+                {{ data["addressCountry"] }} <br>
                 <!--</div>-->
                 {% endif %}
                 <dd class="govuk-summary-list__actions">
