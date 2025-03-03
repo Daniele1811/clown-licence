@@ -53,17 +53,21 @@
 
       <h2 class="govuk-heading-m">Personal details</h2>
 
+{% if data["answers-checked"] == "true" %}
+      
       {% set completedStatus = {
         text: "Completed"
-      } %}
+      } %} 
+{% else %}
+      {% set incompleteStatus = { 
+        tag: { 
+          text: "Incomplete", 
+          class: "govuk-tag--blue" 
+          } } %} 
 
-      {% set incompleteStatus = {
-        tag: {
-          text: "Incomplete",
-          classes: "govuk-tag--blue"
-        }
-      } %}
+{% endif %} 
 
+ 
       {# To switch between the completed and incomplete statues, use some inline logic within the component below, like this: "status: (completedStatus if ... else incompleteStatus)" #}
 
       {{ govukTaskList({
@@ -74,21 +78,21 @@
               text: "Identity details"
             },
             href: "personal-details",
-            status: incompleteStatus
+            status: (completedStatus if data["answers-checked"] == 'true' else incompleteStatus)
           },
           {
             title: {
               text: "Address"
             },
             href: "address-qu",
-            status: incompleteStatus
+            status: (completedStatus if data['answers-checked'] == 'true' else incompleteStatus)
           },
           {
             title: {
               text: "Contact details"
             },
             href: "telephone",
-            status: incompleteStatus
+            status: (completedStatus if data['answers-checked'] == 'true' else incompleteStatus)
           }
         ]
       }) }}
@@ -104,127 +108,127 @@
               text: "Name of fourth task"
             },
             href: "#",
-            status: incompleteStatus
+            status: (completedStatus if data['answers-checked'] == 'true' else incompleteStatus)
           },
           {
             title: {
               text: "Name of fifth task"
             },
             href: "#",
-            status: incompleteStatus
+            status: (completedStatus if data['answers-checked'] == 'true' else incompleteStatus)
           },
           {
             title: {
               text: "Name of sixth task"
             },
             href: "#",
-            status: incompleteStatus
+            status: (completedStatus if data['answers-checked'] == 'true' else incompleteStatus)
           },
           {
             title: {
               text: "Name of seventh task"
             },
             href: "#",
-            status: incompleteStatus
+            status: (completedStatus if data['answers-checked'] == 'true' else incompleteStatus)
           },
           {
             title: {
               text: "Name of eighth task"
             },
-            href: "#",
-            status: incompleteStatus
-          }
-        ]
-      }) }}
-<h2 class="govuk-heading-m govuk-!-margin-top-5">Places of work</h2>
+                        href: "#",
+                        status: (completedStatus if data['answers-checked'] == 'true' else incompleteStatus)
+                      }
+                    ]
+                  }) }}
+            <h2 class="govuk-heading-m govuk-!-margin-top-5">Places of work</h2>
 
-      {{ govukTaskList({
-        idPrefix: "third-section",
-        items: [
-          {
-            title: {
-              text: "Name of ninth task"
-            },
-            href: "#",
-            status: incompleteStatus
-          },
-          {
-            title: {
-              text: "Name of tenth task"
-            },
-            href: "#",
-            status: incompleteStatus
-          },
-          {
-            title: {
-              text: "Name of eleventh task"
-            },
-            href: "#",
-            status: incompleteStatus
-          },
-          {
-            title: {
-              text: "Name of twelth task"
-            },
-            href: "#",
-            status: incompleteStatus
-          },
-          {
-            title: {
-              text: "Name of thirteenth task"
-            },
-            href: "#",
-            status: incompleteStatus
-          }
-        ]
-      }) }}
-<h2 class="govuk-heading-m govuk-!-margin-top-5">Update evidence</h2>
+                  {{ govukTaskList({
+                    idPrefix: "third-section",
+                    items: [
+                      {
+                        title: {
+                          text: "Name of ninth task"
+                        },
+                        href: "#",
+                        status: (completedStatus if data['answers-checked'] == 'true' else incompleteStatus)
+                      },
+                      {
+                        title: {
+                          text: "Name of tenth task"
+                        },
+                        href: "#",
+                        status: (completedStatus if data['answers-checked'] == 'true' else incompleteStatus)
+                      },
+                      {
+                        title: {
+                          text: "Name of eleventh task"
+                        },
+                        href: "#",
+                        status: (completedStatus if data['answers-checked'] == 'true' else incompleteStatus)
+                      },
+                      {
+                        title: {
+                          text: "Name of twelth task"
+                        },
+                        href: "#",
+                        status: (completedStatus if data['answers-checked'] == 'true' else incompleteStatus)
+                      },
+                      {
+                        title: {
+                          text: "Name of thirteenth task"
+                        },
+                        href: "#",
+                        status: (completedStatus if data['answers-checked'] == 'true' else incompleteStatus)
+                      }
+                    ]
+                  }) }}
+            <h2 class="govuk-heading-m govuk-!-margin-top-5">Update evidence</h2>
 
-      {{ govukTaskList({
-        idPrefix: "fourth-section",
-        items: [
-          {
-            title: {
-              text: "Name of fourteenth task"
-            },
-            href: "#",
-            status: incompleteStatus
-          },
-          {
-            title: {
-              text: "Name of fifteenth task"
-            },
-            href: "#",
-            status: incompleteStatus
-          },
-          {
-            title: {
-              text: "Name of sixteenth task"
-            },
-            href: "#",
-            status: incompleteStatus
-          },
-          {
-            title: {
-              text: "Name of seventeenth task"
-            },
-            href: "#",
-            status: incompleteStatus
-          },
-          {
-            title: {
-              text: "Name of eighteenth task"
-            },
-            href: "#",
-            status: incompleteStatus
-          }
-        ]
-      }) }}
+                  {{ govukTaskList({
+                    idPrefix: "fourth-section",
+                    items: [
+                      {
+                        title: {
+                          text: "Name of fourteenth task"
+                        },
+                        href: "#",
+                        status: (completedStatus if data['answers-checked'] == 'true' else incompleteStatus)
+                      },
+                      {
+                        title: {
+                          text: "Name of fifteenth task"
+                        },
+                        href: "#",
+                        status: (completedStatus if data['answers-checked'] == 'true' else incompleteStatus)
+                      },
+                      {
+                        title: {
+                          text: "Name of sixteenth task"
+                        },
+                        href: "#",
+                        status: (completedStatus if data['answers-checked'] == 'true' else incompleteStatus)
+                      },
+                      {
+                        title: {
+                          text: "Name of seventeenth task"
+                        },
+                        href: "#",
+                        status: (completedStatus if data['answers-checked'] == 'true' else incompleteStatus)
+                      },
+                      {
+                        title: {
+                          text: "Name of eighteenth task"
+                        },
+                        href: "#",
+                        status: (completedStatus if data['answers-checked'] == 'true' else incompleteStatus)
+                      }
+                    ]
+                  }) }}
 
-      <div class="govuk-!-margin-top-5">
-        {{ govukButton({ text: "Apply", href: "personal-details" }) }}
-      </div>
+                  <div class="govuk-!-margin-top-5">
+                    {{ govukButton({ text: "Apply", href: "personal-details" }) }}
+                  </div>
 
-    </div>
-  </div>
+                </div>
+              </div>
 {% endblock %}
