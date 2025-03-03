@@ -42,7 +42,7 @@
 
 {% block content %}
 
-      <form class="form" action="/tasklist" method="post" novalidate>
+      
 
       <div class="govuk-width-container">
   
@@ -86,33 +86,26 @@
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="identity-document">Change<span class="govuk-visually-hidden">identity-document</span></a>
             </dd>
+             </dl>
           </div>
           </div>
-        </dl>
-        
-        
-        <form action="progress" method="post" novalidate>
-          <input type="hidden" name="answers-checked" value="true">
-          
-        </form>
-         </div>
-    </div>
-
-        <h2 class="govuk-heading-m">Now accept and submit your changes</h2>
-          <form action="/public-facing/tasklist" method="post" novalidate>
-
+       
+        <br>
+     
+          <h2 class="govuk-heading-m">Now accept and submit your changes</h2><br>
+          <form action="tasklist" method="post" novalidate>
+ <input type="hidden" name="personal-details-checked" value="true">
 
 {{ govukButton({
 
 text: "Accept and submit"
 
 }) }}
-
-
-</form>
-       </main>
+</main>
+         </form>
+       
 </div>  
-  
+   <div>
   
 
 

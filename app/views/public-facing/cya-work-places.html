@@ -12,8 +12,7 @@
 {% endblock %}
 
 {% block content %}
-  <form class="form" action="/tasklist" method="post" novalidate>
-
+  
       <div class="govuk-width-container">
   
   <main class="govuk-main-wrapper " id="main-content" role="main">
@@ -28,11 +27,9 @@
               Where will you be working?
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data["work-places"] }} <br> 
-              {{ data["work-places2"] }} <br> 
-              {{ data["work-places3"] }} <br> 
-              {{ data["work-places4"] }} <br> 
-              {{ data["work-places5"] }} <br>
+              {% for workPlace in data["work-places"] %}
+                {{ workPlace }}<br>
+              {% endfor %}
             </dd>
             
             <dd class="govuk-summary-list__actions">
@@ -40,17 +37,14 @@
             </dd>
           </div>
           
+     </dl>
      <br>
 
-      <h2 class="govuk-heading-m">
-        Now send your application
-      </h2>
 
-      <p>
-        By submitting this application you are confirming that, to the best of your knowledge, the details you are providing are correct.
-      </p>
+      <h2 class="govuk-heading-m">Now accept and submit your changes</h2><br>
+      <form action="tasklist" method="post" novalidate>
+         <input type="hidden" name="work-places-checked" value="true">
 
-      <form action="/confirmation" method="post" novalidate>
 
         {{ govukButton({
           text: "Accept and send"

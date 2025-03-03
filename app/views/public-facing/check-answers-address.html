@@ -42,8 +42,6 @@
 
 {% block content %}
 
-      <form class="form" action="/tasklist" method="post" novalidate>
-
       <div class="govuk-width-container">
   
   <main class="govuk-main-wrapper " id="main-content" role="main">
@@ -72,7 +70,7 @@
             <dd class="govuk-summary-list__value">
 
                {% if data["address"] == 'yes' %}
-                 <!--<div id="address-uk">-->+
+                 <!--<div id="address-uk">-->
                 {{ data["addressLine1"] }} <br>  
                 {{ data["addressLine2"] }} <br>
                 {{ data["addressTown"] }}  <br>
@@ -92,44 +90,16 @@
                 <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="javascript:history.back()">Change<span class="govuk-visually-hidden">Address</span></a>
             </dd>
-                
-               
-                
-            
-
-               <!--{% if user_answer == 'address-uk' %}
-            <div id="address-uk">
-       {{ data['addressLine1'] + " " + data['address-line-2'] + " " + data['address-town'] + " " + data['address-county'] + " " + data['address-postcode']}}
-          {{ data['addressLine1']}} {{ data['address-line-2']}} {{ data['address-town']}} {{ data['address-county']}} {{ data['address-postcode']}} 
-            
-      </div>-->
-    <!--{% else %}
-      <div id="address-int">
-        {{ data['address-line-1'] + " " + data['address-line-2'] + " " + data['address-town'] + " " + data['address-state'] + " " + data['address-postcode'] + " " + data['address-country'] }}
-          {{ data['address-line-1']}} {{ data['address-line-2']}} {{ data['address-town']}} {{ data['address-state']}} {{ data['address-postcode']}} {{ data['address-country']}}
-      </div>
-    {% endif %}  -->
-         
-           
-            
-            
-          </div>
-          
-          
+                  
           </div>
         </dl>
-        
-        
-        <form action="/form-handler" method="post" novalidate>
-          <input type="hidden" name="answers-checked" value="true">
-          
-        </form>
+     
          </div>
     </div>
 
         <h2 class="govuk-heading-m">Now accept and submit your changes</h2>
-          <form action="/public-facing/tasklist" method="post" novalidate>
-
+          <form action="tasklist" method="post" novalidate>
+          <input type="hidden" name="address-details-checked" value="true">
 
 {{ govukButton({
 
@@ -137,14 +107,9 @@ text: "Accept and submit"
 
 }) }}
 
-
 </form>
-       </main>
+   </main>    
 </div>  
   
-  
-
-
-      
 
 {% endblock %}

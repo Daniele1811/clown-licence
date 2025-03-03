@@ -53,19 +53,17 @@
 
       <h2 class="govuk-heading-m">Personal details</h2>
 
-{% if data["answers-checked"] == "true" %}
       
       {% set completedStatus = {
         text: "Completed"
       } %} 
-{% else %}
+
       {% set incompleteStatus = { 
         tag: { 
           text: "Incomplete", 
           class: "govuk-tag--blue" 
           } } %} 
 
-{% endif %} 
 
  
       {# To switch between the completed and incomplete statues, use some inline logic within the component below, like this: "status: (completedStatus if ... else incompleteStatus)" #}
@@ -77,22 +75,22 @@
             title: {
               text: "Identity details"
             },
-            href: "personal-details",
-            status: (completedStatus if data["answers-checked"] == 'true' else incompleteStatus)
+            href: "check-answers-personal-details",
+            status: (completedStatus if data["personal-details-checked"] == 'true' else incompleteStatus)
           },
           {
             title: {
               text: "Address"
             },
-            href: "address-qu",
-            status: (completedStatus if data['answers-checked'] == 'true' else incompleteStatus)
+            href: "check-answers-address",
+            status: (completedStatus if data['address-details-checked'] == 'true' else incompleteStatus)
           },
           {
             title: {
               text: "Contact details"
             },
-            href: "telephone",
-            status: (completedStatus if data['answers-checked'] == 'true' else incompleteStatus)
+            href: "check-answers-contact",
+            status: (completedStatus if data['contact-details-checked'] == 'true' else incompleteStatus)
           }
         ]
       }) }}
@@ -147,38 +145,10 @@
                     items: [
                       {
                         title: {
-                          text: "Name of ninth task"
+                          text: "Places you have worked"
                         },
-                        href: "#",
-                        status: (completedStatus if data['answers-checked'] == 'true' else incompleteStatus)
-                      },
-                      {
-                        title: {
-                          text: "Name of tenth task"
-                        },
-                        href: "#",
-                        status: (completedStatus if data['answers-checked'] == 'true' else incompleteStatus)
-                      },
-                      {
-                        title: {
-                          text: "Name of eleventh task"
-                        },
-                        href: "#",
-                        status: (completedStatus if data['answers-checked'] == 'true' else incompleteStatus)
-                      },
-                      {
-                        title: {
-                          text: "Name of twelth task"
-                        },
-                        href: "#",
-                        status: (completedStatus if data['answers-checked'] == 'true' else incompleteStatus)
-                      },
-                      {
-                        title: {
-                          text: "Name of thirteenth task"
-                        },
-                        href: "#",
-                        status: (completedStatus if data['answers-checked'] == 'true' else incompleteStatus)
+                        href: "cya-work-places",
+                        status: (completedStatus if data['work-places-checked'] == 'true' else incompleteStatus)
                       }
                     ]
                   }) }}
@@ -224,7 +194,13 @@
                       }
                     ]
                   }) }}
+<h2 class="govuk-heading-m">
+        Now send your application
+      </h2>
 
+      <p>
+        By submitting this application you are confirming that, to the best of your knowledge, the details you have provided are correct.
+      </p>
                   <div class="govuk-!-margin-top-5">
                     {{ govukButton({ text: "Apply", href: "personal-details" }) }}
                   </div>
