@@ -1,0 +1,103 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/service-navigation/macro.njk" import govukServiceNavigation %}
+
+{{ govukServiceNavigation({
+  serviceName: "Clown licence",
+  serviceUrl: "#",
+  navigation: [
+      {
+      href: "#",
+      text: "Start"
+      },
+    {
+      href: "#",
+      text: "Application",
+      active: true
+    },
+    {
+      href: "#",
+      text: "Documents"
+    },
+    {
+      href: "#",
+      text: "Declaration"
+    },
+    {
+      href: "#",
+      text: "Pay"
+    }
+  ]
+}) }}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+<div class="govuk-form-group">
+  <form class="form" action="cya-work-places" method="post">
+    <fieldset class="govuk-fieldset">
+      <h1 class="govuk-heading-l">
+       Which hospitals will you be working at?
+      </h1>
+    
+  <div id="work-places-hint" class="govuk-hint">
+    Select all that apply
+  </div>
+  <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="hospitals1" name="hospitals" type="checkbox" value="Birmingham Children's Hospital">
+        <label class="govuk-label govuk-checkboxes__label" for="hospitals1">
+          Birmingham Children's Hospital
+        </label>
+      </div>
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="hospitals2" name="hospitals" type="checkbox" value="Cambridge University Hospital">
+        <label class="govuk-label govuk-checkboxes__label" for="hospitals2">
+          Cambridge University Hospital
+        </label>
+      </div>
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="hospitals3" name="hospitals" type="checkbox" value="Great Ormond Street Hospital for Children">
+        <label class="govuk-label govuk-checkboxes__label" for="hospitals3">
+          Great Ormond Street Hospital for Children
+        </label>
+      </div>
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="hospitals4" name="hospitals" type="checkbox" value="Paddington Green Children's Hospital">
+        <label class="govuk-label govuk-checkboxes__label" for="hospitals4">
+          Paddington Green Children's Hospital
+        </label>
+      </div>
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="hospitals5" name="hospitals" type="checkbox" value="Royal Marsden Hospital">
+        <label class="govuk-label govuk-checkboxes__label" for="hospitals5">
+          Royal Marsden Hospital
+        </label>
+      </div>
+      </fieldset> 
+</div>
+  
+
+<br>
+<div class="govuk-!-margin-top-5">
+        {{ govukButton({ text: "Save and continue" }) }}
+      </div>
+ 
+      </form>
+ 
+
+    </div>
+  </div>
+ 
+{% endblock %}

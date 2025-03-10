@@ -50,7 +50,28 @@
       <h1 class="govuk-heading-l">
        Where will you be working?
       </h1>
-    
+      {% if data['work-places'] == 'Hospitals' %}
+        <a href="/hospitals"></a>
+      {% else %}
+        <a href="/cya-work-places"></a>
+      {% endif %}
+      <!--<{% if data['hospitals']!= null %}
+                {{ data["hospitals1"] }} <br>  
+                {{ data["hospitals2"] }} <br>
+                {{ data["hospitals3"] }} <br>
+                {{ data["hospitals4"] }} <br>
+                {{ data["hospitals5"] }} <br>
+                <a href="/hospitals"></a>
+      {% else %}
+                <a href="/cya-work-places"></a>
+      {% endif %}>-->
+      
+      <!--<{% if data['work-places'] == 'Hospitals' %}
+        <a href="/hospitals"></a>
+      {% else %}
+        <a href="/cya-work-places"></a>
+      {% endif %}>-->
+
   <div id="work-places-hint" class="govuk-hint">
     Select all that apply
   </div>

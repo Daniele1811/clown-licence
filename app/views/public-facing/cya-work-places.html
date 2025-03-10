@@ -35,10 +35,25 @@
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="work-places">Change<span class="govuk-visually-hidden">work-places</span></a>
             </dd>
-          </div>
+            </div>
+            <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Which hospitals will you be working at?
+            </dt>
+            <dd class="govuk-summary-list__value">
+               {% if data["hospitals"]!= null %}
+              {% for hospital in data["hospitals"] %}
+                {{ hospital }} <br>
+              {% endfor %}
+              {% endif %}
+               </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="hospitals">Change<span class="govuk-visually-hidden">hospitals</span></a>
+            </dd>
+            </div>
           
      </dl>
-     <br>
+   
 
 
       <h2 class="govuk-heading-m">Now accept and submit your changes</h2><br>
