@@ -35,22 +35,23 @@
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="work-places">Change<span class="govuk-visually-hidden">work-places</span></a>
             </dd>
-            </div>
-            <div class="govuk-summary-list__row">
+          </div>
+          <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Which hospitals will you be working at?
             </dt>
             <dd class="govuk-summary-list__value">
                {% if data["hospitals"]!= null %}
-              {% for hospital in data["hospitals"] %}
-                {{ hospital }} <br>
-              {% endfor %}
+                {{ data["hospitals1"] }} <br>  
+                {{ data["hospitals2"] }} <br>
+                {{ data["hospitals3"] }}  <br>
+                {{ data["hospitals4"] }} <br>
+                {{ data["hospitals5"] }} <br>
               {% endif %}
                </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="hospitals">Change<span class="govuk-visually-hidden">hospitals</span></a>
+                <a class="govuk-link" href="hospitals">Change<span class="govuk-visually-hidden">hospitals</span></a>
             </dd>
-            </div>
           
      </dl>
    

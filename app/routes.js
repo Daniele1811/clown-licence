@@ -20,7 +20,7 @@ router.post('/public-facing/address-uk', function(request, response) {
         response.redirect("/public-facing/address-int")
     }
 })
-router.post('/cya-work-places', function (req, res) {
+router.post('/work-places-route', function (req, res) {
     // Get the answer from session data
     // The name between the quotes is the same as the 'name' attribute on the input elements
     // Javascript doesn't support hyphens ('-') in variable names (like formValue)
