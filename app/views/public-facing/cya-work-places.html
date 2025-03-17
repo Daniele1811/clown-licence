@@ -41,13 +41,16 @@
               Which hospitals will you be working at?
             </dt>
             <dd class="govuk-summary-list__value">
-               {% if data["hospitals"]!= null %}
+              {% for workPlace in data["hospitals"] %}
+                {{ workPlace }}<br>
+              {% endfor %}
+               <!--<{% if data["hospitals"]!= null %}
                 {{ data["hospitals1"] }} <br>  
                 {{ data["hospitals2"] }} <br>
                 {{ data["hospitals3"] }}  <br>
                 {{ data["hospitals4"] }} <br>
                 {{ data["hospitals5"] }} <br>
-              {% endif %}
+              {% endif %}>-->
                </dd>
             <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="hospitals">Change<span class="govuk-visually-hidden">hospitals</span></a>

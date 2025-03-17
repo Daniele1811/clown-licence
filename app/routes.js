@@ -20,16 +20,22 @@ router.post('/public-facing/address-uk', function(request, response) {
         response.redirect("/public-facing/address-int")
     }
 })
-router.post('/work-places-route', function (req, res) {
+
+// url here should be to the page that is doing the routing
+router.post('/public-facing/work-places', function (req, res) {
     // Get the answer from session data
+    // the checkbox answer data saved as the name attribute, in this case work-places
     // The name between the quotes is the same as the 'name' attribute on the input elements
     // Javascript doesn't support hyphens ('-') in variable names (like formValue)
 
-    let formValue = req.session.data['/work-places']
-
+    let formValue = req.session.data['work-places']
+// if the variable "work-places"...
+    // contains the word Hospital
     if (formValue.includes('Hospitals')) {
-      res.redirect('/hospitals')
+    // then redirect to hospital page
+        res.redirect('/public-facing/hospitals')
     } else {
-      res.redirect('/cya-work-places')
+    // otherwise, hospitals has not been selected so redirect to CYA page
+      res.redirect('/public-facing/cya-work-places')
     }
   })  
