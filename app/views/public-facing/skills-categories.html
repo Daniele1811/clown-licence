@@ -1,0 +1,103 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/service-navigation/macro.njk" import govukServiceNavigation %}
+
+{{ govukServiceNavigation({
+  serviceName: "Clown licence",
+  serviceUrl: "#",
+  navigation: [
+      {
+      href: "#",
+      text: "Start"
+      },
+    {
+      href: "#",
+      text: "Application",
+      active: true
+    },
+    {
+      href: "#",
+      text: "Documents"
+    },
+    {
+      href: "#",
+      text: "Declaration"
+    },
+    {
+      href: "#",
+      text: "Pay"
+    }
+  ]
+}) }}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+<div class="govuk-form-group">
+  <form class="form" action="/public-facing/have-skills" method="post">
+    <fieldset class="govuk-fieldset">
+      <h1 class="govuk-heading-l">
+       Do you have any clown skills?
+      </h1>
+      
+  <div id="work-places-hint" class="govuk-hint">
+    Select all that apply
+  </div>
+  <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="work-places" name="work-places" type="checkbox" value="Amusement parks">
+        <label class="govuk-label govuk-checkboxes__label" for="work-places">
+          Amusement parks
+        </label>
+      </div>
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="work-places2" name="work-places" type="checkbox" value="Circuses">
+        <label class="govuk-label govuk-checkboxes__label" for="work-places2">
+          Circuses
+        </label>
+      </div>
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="work-places3" name="work-places" type="checkbox" value="Hospitals">
+        <label class="govuk-label govuk-checkboxes__label" for="work-places3">
+          Hospitals
+        </label>
+      </div>
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="work-places4" name="work-places" type="checkbox" value="Parties">
+        <label class="govuk-label govuk-checkboxes__label" for="work-places4">
+          Parties
+        </label>
+      </div>
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="work-places5" name="work-places" type="checkbox" value="Shopping Mall">
+        <label class="govuk-label govuk-checkboxes__label" for="work-places5">
+          Shopping mall
+        </label>
+      </div>
+      </fieldset> 
+</div>
+  
+
+<br>
+<div class="govuk-!-margin-top-5">
+        {{ govukButton({ text: "Save and continue" }) }}
+      </div>
+ 
+      </form>
+ 
+
+    </div>
+  </div>
+ 
+{% endblock %}

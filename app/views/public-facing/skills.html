@@ -1,0 +1,121 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/service-navigation/macro.njk" import govukServiceNavigation %}
+
+{{ govukServiceNavigation({
+  serviceName: "Clown licence",
+  serviceUrl: "#",
+  navigation: [
+      {
+      href: "#",
+      text: "Start"
+      },
+    {
+      href: "#",
+      text: "Application",
+      active: true
+    },
+    {
+      href: "#",
+      text: "Documents"
+    },
+    {
+      href: "#",
+      text: "Declaration"
+    },
+    {
+      href: "#",
+      text: "Pay"
+    }
+  ]
+}) }}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+<div class="govuk-form-group">
+  <form class="form" action="/public-facing/have-skills" method="post">
+    <fieldset class="govuk-fieldset">
+      <h1 class="govuk-heading-l">
+       Clown skills
+      </h1>
+      
+  <div id="work-places-hint" class="govuk-hint">
+    Do you have any professional clown skills?
+  </div>
+ <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="skills" name="skills" type="radio" value="yes">
+        <label class="govuk-label govuk-radios__label" for="skills">
+          Yes
+        </label>
+        </div>
+        <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-skills">
+          <fieldset class="govuk-fieldset" aria-describedby="conditional-skills-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+              Please select all that apply
+            </legend>
+            <span id="conditional-skills-hint" class="govuk-hint">
+              Select all that apply
+            </span>
+            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="skills-1" name="skills-1" type="checkbox" value="Physical comedy skills">
+                <label class="govuk-label govuk-checkboxes__label" for="skills-1">
+                  Physical comedy skills
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="skills-2" name="skills-2" type="checkbox" value="Audience interaction skills">
+                <label class="govuk-label govuk-checkboxes__label" for="skills-2">
+                  Audience interaction skills
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="skills-3" name="skills-3" type="checkbox" value="Adaptability skills">
+                <label class="govuk-label govuk-checkboxes__label" for="skills-3">
+                  Adaptability skills
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="skills-4" name="skills-4" type="checkbox" value="Other clown skills">
+                <label class="govuk-label govuk-checkboxes__label" for="skills-4">
+                  Other clown skills
+                </label>
+              </div>
+            </div>
+          
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="skills-2" name="skills" type="radio" value="no">
+        <label class="govuk-label govuk-radios__label" for="skills-2">
+          No
+        </label>
+      </div> 
+      </fieldset> 
+</div>
+  
+
+<br>
+<div class="govuk-!-margin-top-5">
+        {{ govukButton({ text: "Save and continue" }) }}
+      </div>
+ 
+      </form>
+ 
+
+    </div>
+  </div>
+ 
+{% endblock %}
