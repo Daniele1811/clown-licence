@@ -45,69 +45,60 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 <div class="govuk-form-group">
-  <form class="form" action="/public-facing/skills" method="post">
+  <form class="form" action="/public-facing/physical-skills" method="post">
     <fieldset class="govuk-fieldset">
-      <h1 class="govuk-heading-l">
-       Clown skills
-      </h1>
+     
       
-  <div id="skills" class="govuk-body">
-    Do you have any physical comedy and movement skills?
-  </div>
-  
-   <div class="govuk-radios" data-module="govuk-radios">
-            <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="skills" name="skills" type="radio" value="yes">
+ 
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="skills-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading">
+        Do you have any clown skills?
+      </h1>
+    </legend>
+    <div id="skills-hint" class="govuk-hint">
+      Select one option
+    </div>
+    <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="skills" name="skills" type="radio" value="yes~/public-facing/physical-skills" data-aria-controls="conditional-skills">
         <label class="govuk-label govuk-radios__label" for="skills">
           Yes
         </label>
-        </div>
-        <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-skills">
-          <fieldset class="govuk-fieldset" aria-describedby="conditional-skills-hint">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-              Please select all that apply
-            </legend>
-            <span id="conditional-skills-hint" class="govuk-hint">
-              Select all that apply
-            </span>
-            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="skills-1" name="skills-1" type="checkbox" value="Physical comedy skills">
-                <label class="govuk-label govuk-checkboxes__label" for="skills-1">
-                  Physical comedy skills
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="skills-2" name="skills-2" type="checkbox" value="Audience interaction skills">
-                <label class="govuk-label govuk-checkboxes__label" for="skills-2">
-                  Audience interaction skills
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="skills-3" name="skills-3" type="checkbox" value="Adaptability skills">
-                <label class="govuk-label govuk-checkboxes__label" for="skills-3">
-                  Adaptability skills
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="skills-4" name="skills-4" type="checkbox" value="Other clown skills">
-                <label class="govuk-label govuk-checkboxes__label" for="skills-4">
-                  Other clown skills
-                </label>
-              </div>
-            </div>
-          
       </div>
-      <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="skills-2" name="skills" type="radio" value="no">
+      <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-skills">
+        <div class="govuk-form-group" class="govuk-form-group govuk-character-count" data-module="govuk-character-count" data-maxlength="200">
+         
+          <div id="more-detail-hint" class="govuk-hint">
+            Provide details of any skills you have, such as:
+            
+  <ul>
+    <li>Physical comedy, including tumbling, acrobatics and juggling</li>
+    <li>Improvisation</li>
+    <li>Audience engagement, including story telling</li>
+    <li>Magic tricks</li>
+    <li>Emotional intelligence</li>
+    <li>Any other clown skills</li>
+  </div>
+  
+          
+          <textarea class="govuk-textarea govuk-js-character-count" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint"></textarea>
+          <div id="with-hint-info" class="govuk-hint govuk-character-count__message">
+    You can enter up to 200 characters
+  </div>
+        </div>
+      </div>
+        <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="skills-2" name="skills" type="radio" value="no~/public-facing/physical-skills">
         <label class="govuk-label govuk-radios__label" for="skills-2">
           No
         </label>
       </div> 
-      </fieldset> 
+      
+    </div>
+  </fieldset>
 </div>
-  
-
 <br>
 <div class="govuk-!-margin-top-5">
         {{ govukButton({ text: "Save and continue" }) }}

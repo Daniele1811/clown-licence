@@ -1,0 +1,96 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  
+      <div class="govuk-width-container">
+  
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds-from-desktop">
+        <h1 class="govuk-heading-l">Check your answers before continuing to the next section</h1>
+        
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+     <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Do you have any clown skills?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% for skills in data["skills"] %}
+                {{ skills }}<br>
+              {% endfor %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="/public-facing/skills">Change<span class="govuk-visually-hidden">skills</span></a>
+            </dd>
+    </div>
+    <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Details of your clown skills
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% for moreDetail in data["more-detail"] %}
+                {{ moreDetail }}<br>
+              {% endfor %}
+            </dd>        
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="/public-facing/skills">Change<span class="govuk-visually-hidden">skills</span></a>
+            </dd>
+    </div>
+    <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Do you use physical clown skills when performing?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% for physicalSkills in data["physical-skills"] %}
+                {{ physicalSkills }}<br>
+              {% endfor %}
+               
+               </dd>
+            <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="/public-facing/country-skills-training">Change<span class="govuk-visually-hidden">country-skills-training</span></a>
+            </dd>
+    </div>
+    <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Which country did you do your clown training in?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% for trainingCountry in data["training-country"] %}
+                {{ trainingCountry }}<br>
+              {% endfor %}
+               
+               </dd>
+            <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="/public-facing/country-skills-training">Change<span class="govuk-visually-hidden">country-skills-training</span></a>
+            </dd>
+    </div>      
+     </dl>
+   
+
+
+      <h2 class="govuk-heading-m">Now accept and submit your changes</h2><br>
+      <form action="tasklist" method="post" novalidate>
+         <input type="hidden" name="work-places-checked" value="true">
+
+
+        {{ govukButton({
+          text: "Accept and submit"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

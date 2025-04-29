@@ -21,6 +21,7 @@ router.post('/public-facing/address-uk', function(request, response) {
     }
 })
 
+
 // url here should be to the page that is doing the routing
 router.post('/public-facing/work-places', function (req, res) {
     // Get the answer from session data
@@ -38,4 +39,4 @@ router.post('/public-facing/work-places', function (req, res) {
     // otherwise, hospitals has not been selected so redirect to CYA page
       res.redirect('/public-facing/cya-work-places')
     }
-  })  
+  })

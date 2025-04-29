@@ -1,0 +1,160 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/service-navigation/macro.njk" import govukServiceNavigation %}
+
+{{ govukServiceNavigation({
+  serviceName: "Clown licence",
+  serviceUrl: "#",
+  navigation: [
+      {
+      href: "#",
+      text: "Start"
+      },
+    {
+      href: "#",
+      text: "Application",
+      active: true
+    },
+    {
+      href: "#",
+      text: "Documents"
+    },
+    {
+      href: "#",
+      text: "Declaration"
+    },
+    {
+      href: "#",
+      text: "Pay"
+    }
+  ]
+}) }}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+<div class="govuk-form-group">
+  <form class="form" action="/public-facing/country-skills-training" method="post">
+    <fieldset class="govuk-fieldset">
+     
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="physical-skills-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading">
+        Do you use physical clown skills when performing?
+      </h1>
+      <br>
+    </legend>
+    <div id="physical-skills-hint" class="govuk-hint">
+      Select all options that are relevant to you
+    </div>
+    <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="physical-skills" name="physicalSkills" type="checkbox" value="acrobatics" data-aria-controls="conditional-physical-skills">
+        <label class="govuk-label govuk-checkboxes__label" for="physical-skills">
+          Acrobatics
+        </label>
+      </div>
+      <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-physical-skills">
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="acrobatics-certification">
+            Details of your acrobatics certification.
+          </label>
+          <input class="govuk-input govuk-!-width-two-thirds" id="acrobatics-certification" name="acrobaticsCertification" type="text" spellcheck="false" autocomplete="text">
+        </div>
+      </div>
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="physical-skills-2" name="physical-skills" type="checkbox" value="balancing" data-aria-controls="conditional-physical-skills-2">
+        <label class="govuk-label govuk-checkboxes__label" for="physical-skills-2">
+          Balancing
+        </label>
+      </div>
+      <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-physical-skills-2">
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="balancing-certification">
+            Provide details of your balancing certification.
+          </label>
+          <input class="govuk-input govuk-!-width-two-thirds" id="balancing-certification" name="balancingCertification" type="text" spellcheck="false" autocomplete="text">
+        </div>
+      </div>
+      <div class="govuk-checkboxes__divider">or</div>
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="physical-skills-3" name="physical-skills" type="checkbox" value="none" data-aria-controls="physical-skills-3">
+        <label class="govuk-label govuk-checkboxes__label" for="physical-skills-3">
+          No, I do not have any physical skills.
+        </label>
+      </div>
+      
+    </div>
+  </fieldset>
+</div>   
+ 
+<!--<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="skills-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading">
+        Do you have any clown skills?
+      </h1>
+    </legend>
+    <div id="skills-hint" class="govuk-hint">
+      Select one option
+    </div>
+    <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="skills" name="skills" type="radio" value="yes" data-aria-controls="conditional-skills">
+        <label class="govuk-label govuk-radios__label" for="skills">
+          Yes
+        </label>
+      </div>
+      <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-skills">
+        <div class="govuk-form-group">
+          <div id="more-detail-hint" class="govuk-hint">
+    This may include any of the following skills:
+  <ul>
+    <li>Physical comedy, including tumbling, acrobatics and juggling</li>
+    <li>Improvisation</li>
+    <li>Audience engagement, including story telling</li>
+    <li>Magic tricks</li>
+    <li>Emotional intelligence</li>
+    <li>Other clown skills</li>
+  </div>
+          <label class="govuk-label" for="skills-more-details">
+            Please provide details of your skills
+          </label>
+          <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint"></textarea>
+          
+        </div>
+      </div>
+        <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="skills-2" name="skills" type="radio" value="no">
+        <label class="govuk-label govuk-radios__label" for="skills-2">
+          No
+        </label>
+      </div> 
+      
+    </div>>-->
+  </fieldset>
+</div>
+<br>
+<div class="govuk-!-margin-top-5">
+        {{ govukButton({ text: "Save and continue" }) }}
+      </div>
+ 
+      </form>
+ 
+
+    </div>
+  </div>
+ 
+{% endblock %}

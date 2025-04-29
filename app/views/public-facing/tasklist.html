@@ -107,6 +107,20 @@
             },
             href: "skills",
             status: (completedStatus if data['answers-checked'] == 'true' else incompleteStatus)
+          },
+          {
+            title: {
+              text: "Physical skills"
+            },
+            href: "physical-skills",
+            status: (completedStatus if data['answers-checked'] == 'true' else incompleteStatus)
+          },
+          {
+            title: {
+              text: "Country of training"
+            },
+            href: "country-skills-training",
+            status: (completedStatus if data['answers-checked'] == 'true' else incompleteStatus)
           }
        ]
                   }) }}
