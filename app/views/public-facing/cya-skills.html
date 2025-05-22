@@ -19,7 +19,11 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds-from-desktop">
         <h1 class="govuk-heading-l">Check your answers before continuing to the next section</h1>
-        
+    
+     <!--<{% if data["more-detail"] != null %}
+    Details of your clown skills
+ {% endif %}>--> 
+
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
 
      <div class="govuk-summary-list__row">
@@ -28,7 +32,7 @@
             </dt>
             <dd class="govuk-summary-list__value">
               {% for skills in data["skills"] %}
-                {{ skills }}<br>
+                {{ skills }}
               {% endfor %}
             </dd>
             <dd class="govuk-summary-list__actions">
@@ -40,8 +44,11 @@
               Details of your clown skills
             </dt>
             <dd class="govuk-summary-list__value">
-              {% for moreDetail in data["more-detail"] %}
+              <!--<{% for moreDetail in data["more-detail"] %}
                 {{ moreDetail }}<br>
+              {% endfor %}>-->
+              {% for moreDetail in data["moreDetail"] %}
+                {{ moreDetail }}
               {% endfor %}
             </dd>        
             <dd class="govuk-summary-list__actions">
@@ -53,10 +60,11 @@
               Do you use physical clown skills when performing?
             </dt>
             <dd class="govuk-summary-list__value">
-              {% for physicalSkills in data["physical-skills"] %}
+              {% for physicalSkills in data["physicalSkills"] %}
                 {{ physicalSkills }}<br>
               {% endfor %}
-               
+               {{ acrobaticsCertification }}<br>
+               {{ balancingCertification }}<br>
                </dd>
             <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="/public-facing/country-skills-training">Change<span class="govuk-visually-hidden">country-skills-training</span></a>
@@ -67,22 +75,22 @@
               Which country did you do your clown training in?
             </dt>
             <dd class="govuk-summary-list__value">
-              {% for trainingCountry in data["training-country"] %}
-                {{ trainingCountry }}<br>
+              {% for trainingCountry in data["trainingCountry"] %}
+                {{ trainingCountry }}
               {% endfor %}
                
                </dd>
             <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="/public-facing/country-skills-training">Change<span class="govuk-visually-hidden">country-skills-training</span></a>
             </dd>
-    </div>      
+        
      </dl>
    
 
 
       <h2 class="govuk-heading-m">Now accept and submit your changes</h2><br>
       <form action="tasklist" method="post" novalidate>
-         <input type="hidden" name="work-places-checked" value="true">
+         <input type="hidden" name="skills-checked" value="true">
 
 
         {{ govukButton({
@@ -90,7 +98,7 @@
         }) }}
 
       </form>
-
+</main>
     </div>
   </div>
 {% endblock %}
