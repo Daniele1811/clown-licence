@@ -61,10 +61,14 @@
             </dt>
             <dd class="govuk-summary-list__value">
               {% for physicalSkills in data["physicalSkills"] %}
-                {{ physicalSkills }}<br>
-              {% endfor %}
-               {{ acrobaticsCertification }}<br>
-               {{ balancingCertification }}<br>
+       {{ physicalSkills }}<br>
+{% if physicalSkills == "acrobatics" %}
+        {{ data["acrobaticsCertification"] }}<br><br>
+      {% endif %}
+      {% if physicalSkills == "balancing" %}
+        {{ data["balancingCertification"] }}<br><br>
+    {% endif %}
+{% endfor %}
                </dd>
             <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="/public-facing/country-skills-training">Change<span class="govuk-visually-hidden">country-skills-training</span></a>
