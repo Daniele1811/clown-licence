@@ -1,0 +1,80 @@
+{% set serviceName = "" %}
+{% extends "layouts/main.html" %}
+{% block beforeContent %}
+{{ govukBackLink({
+  href: "javascript: window.history.go(-1)"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-error-summary" data-module="govuk-error-summary">
+  <div role="alert">
+    <h2 class="govuk-error-summary__title">
+      There is a problem
+    </h2>
+    <div class="govuk-error-summary__body">
+      <ul class="govuk-list govuk-error-summary__list">
+        <li>
+          <a href="#first-name">Enter your first name</a>
+        </li>
+        <li>
+          <a href="#last-name">Enter your last name</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<legend class="govuk-fieldset_legend govuk-fieldset_legend--l govuk-!-margin-bottom-6">
+      <h1 class="govuk-heading-l">
+        What is your name?
+      </h1>
+</legend>
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+<form class="form" action="birth-date" method="post" novalidate>
+  
+<div class="govuk-form-group govuk-form-group--error">
+  <label class="govuk-label" for="two-thirds">
+    First name
+  </label>
+  <p id="first-name-error" name="errorFirstName" class="govuk-error-message">
+   <span class="govuk-visually-hidden">Error:</span> Enter your first name
+ </p>
+ <input class="govuk-input govuk-input--error govuk-!-width-two-thirds" id="first-name" name="firstName" type="text" aria-describedby="first-name-hint-error">
+
+ </div>
+
+
+<div class="govuk-form-group govuk-form-group--error">
+  <label class="govuk-label" for="two-thirds">
+    Last name
+  </label>
+  <p id="last-name-error" name="errorLastName" class="govuk-error-message">
+   <span class="govuk-visually-hidden">Error:</span> Enter your last name
+ </p>
+ <input class="govuk-input govuk-input--error govuk-!-width-two-thirds" id="last-name" name="lastName" type="text" aria-describedby="last-name-hint-error">
+
+</div>
+ 
+ 
+
+<br>
+<div class="govuk-!-margin-top-5">
+        {{ govukButton({ text: "Save and continue" }) }}
+      </div>
+ 
+      </form>
+ 
+
+    </div>
+  </div>
+ 
+{% endblock %}
+
+
+
+
+

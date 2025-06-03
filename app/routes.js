@@ -40,3 +40,16 @@ router.post('/public-facing/work-places', function (req, res) {
       res.redirect('/public-facing/cya-work-places')
     }
   })
+
+
+router.post('/public-facing/birth-date', function (req, res) {
+    const { firstName, lastName } = req.body;
+
+    if (!firstName || firstName.trim() === '' || !lastName || lastName.trim() === '') {
+        res.redirect('/public-facing/personal-details-error');
+    } else {
+        req.session.data['first-name'] = firstName;
+        req.session.data['last-name'] = lastName;
+        res.redirect('/public-facing/birth-date');
+    }
+})

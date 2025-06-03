@@ -1,72 +1,43 @@
+{% set serviceName = "" %}
 {% extends "layouts/main.html" %}
-
-{% block pageTitle %}
-  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
-{% endblock %}
-
 {% block beforeContent %}
-{% from "govuk/components/service-navigation/macro.njk" import govukServiceNavigation %}
-
-{{ govukServiceNavigation({
-  serviceName: "Clown licence",
-  serviceUrl: "#",
-  navigation: [
-      {
-      href: "#",
-      text: "Start"
-      },
-    {
-      href: "#",
-      text: "Application",
-      active: true
-    },
-    {
-      href: "#",
-      text: "Documents"
-    },
-    {
-      href: "#",
-      text: "Declaration"
-    },
-    {
-      href: "#",
-      text: "Pay"
-    }
-  ]
-}) }}
-  {{ govukBackLink({
-  text: "Back",
-  href: "javascript:window.history.back()"
+{{ govukBackLink({
+  href: "javascript: window.history.go(-1)"
 }) }}
 {% endblock %}
 
 {% block content %}
-
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-one-half">
-
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    
+      
+<legend class="govuk-fieldset_legend govuk-fieldset_legend--l govuk-!-margin-bottom-6">
       <h1 class="govuk-heading-l">
         What is your name?
       </h1>
+</legend>
+ 
 
-      <form class="form" action="birth-date" method="post" novalidate>
 
-        
-  <div class="govuk-form-group">
-  <label class="govuk-label" for="event-name">
+<form class="form" action="birth-date" method="post" novalidate>
+  
+<div class="govuk-form-group">
+  <label class="govuk-label" for="two-thirds">
     First name
   </label>
-  <input class="govuk-input" id="first-name" name="firstName" type="text">
-</div>
+  <input class="govuk-input govuk-!-width-two-thirds" id="first-name" name="firstName" type="text" required>
+ </div>
+
 
 <div class="govuk-form-group">
-  <label class="govuk-label" for="event-name">
+  <label class="govuk-label" for="two-thirds">
     Last name
   </label>
-  <input class="govuk-input" id="last-name" name="lastName" type="text">
+  <input class="govuk-input govuk-!-width-two-thirds" id="last-name" name="lastName" type="text">
 </div>
  
  
+
 <br>
 <div class="govuk-!-margin-top-5">
         {{ govukButton({ text: "Save and continue" }) }}
@@ -79,3 +50,8 @@
   </div>
  
 {% endblock %}
+
+
+
+
+
