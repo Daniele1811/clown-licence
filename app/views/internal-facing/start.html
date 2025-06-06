@@ -1,0 +1,69 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Start page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Clown licence applications
+      </h1>
+
+      <h2 class="govuk-heading-m">Use this service to process clown licence applications</h2>
+
+  
+<br>
+
+      {{ govukButton({
+        text: "Start now",
+        href: "applications",
+        isStartButton: true
+      }) }}
+
+      <p class="govuk-body">
+        This service is for caseworkers to process clown licence applications. It includes guidance on how to handle applications, reasons for refusal, and links to related resources.
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">
+          Subsection
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li>
+              <a href="#">
+                Caseworkers guidance for processing clown licence applications
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Reasons for refusing a clown licence application
+              </a>
+            </li>
+            <li>
+              <a href="#" class="govuk-!-font-weight-bold">
+                More <span class="govuk-visually-hidden">in Subsection</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+    </div>
+  </div>
+
+{% endblock %}

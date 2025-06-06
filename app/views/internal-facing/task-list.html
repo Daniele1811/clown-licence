@@ -1,0 +1,254 @@
+{% extends "layouts/main.html" %}
+
+{% block homeOfficeKit_style %}
+<!-- Add css to apply just to this page. For example:
+.my-style {
+  color: red;
+}
+The <style> tage is already included. -->
+  	.hods-header {
+    background-color: #ffffff !important;
+}
+
+.govuk-template__body, .hods-page {
+    margin: 0;
+    background-color: #f3f2f1 !important;
+}
+
+.govuk-tabs__list-item--selected {
+    background-color: #f3f2f1 !important;
+}
+
+.govuk-main-wrapper {
+ padding-top: 0px;
+}
+
+.govuk-tabs__panel 
+{
+
+}
+
+.govuk-header {
+    border-bottom: 0px solid #ffffff;
+}
+
+.autocomplete__wrapper {
+  background-color: #ffffff;
+}
+
+.govuk-header__logo {
+display:none;
+}
+
+.govuk-header__container {
+border-bottom: none;
+margin-bottom: 0;
+}
+
+.govuk-service-navigation {
+    border-bottom: 1px solid #b1b4b6;
+    background-color: #f3f2f1;
+}
+
+.govuk-service-navigation__link {
+   display: inline;
+   color: #1d70b8;
+   text-decoration: none;
+     box-sizing: border-box;
+        height: 3.125rem;
+        padding: 0 15px;
+        float: left;
+        line-height: 50px;
+}
+
+.govuk-service-navigation__item {
+   display: inline;
+   color: #1d70b8;
+   text-decoration: none;
+   font-weight: 700;
+     box-sizing: border-box;
+        height: 3.125rem;
+        padding: 0 15px;
+        line-height: 50px;
+}
+
+.govuk-service-navigation__item a:visited{
+color: #1d70b8;
+}
+
+.govuk-service-navigation__list {
+padding: 0;
+margin:0;
+}
+
+.app-navigation__list-item--current {
+  border-bottom: 5px solid #1d70b8;
+}
+
+.govuk-pagination {
+  margin-left:20px;
+}
+
+.govuk-accordion__controls {
+  display:none;
+}
+
+.govuk-accordion__section-button {
+border-top: 0px solid #b1b4b6 !important;
+}
+
+.govuk-tag {
+  margin-bottom: 10px;
+}
+  
+{% include "current/dropdowns/_autocomplete.css" %}
+{% endblock %}
+
+{% block pageTitle %}
+Task management – {{ serviceName }} – Home office
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukPhaseBanner({
+  tag: {
+    text: "Prototype"
+  },
+  html: 'This is for testing purposes only. No code should be considered for development.'
+  }) }}
+
+<div class="govuk-service-navigation"
+  data-module="govuk-service-navigation">
+  <div class="govuk-width-container">
+    <div class="govuk-service-navigation__container">
+      <nav aria-label="Menu" class="govuk-service-navigation__wrapper">
+        <button type="button" class="govuk-service-navigation__toggle govuk-js-service-navigation-toggle" aria-controls="navigation" hidden>
+          Menu
+        </button>
+        <ul class="govuk-service-navigation__list" id="navigation">
+          <li class="govuk-service-navigation__item govuk-service-navigation__item--active">
+            <a class="govuk-service-navigation__link" href="#">
+              Task list
+            </a>
+          </li>
+          <li class="govuk-service-navigation__item">
+            <a class="govuk-service-navigation__link" href="search" aria-current="true">
+              <strong class="govuk-service-navigation__active-fallback">Search</strong>
+            </a>
+          </li>
+          <li class="govuk-service-navigation__item">
+            <a class="govuk-service-navigation__link" href="#">
+              Case numbers
+            </a>
+          </li>
+          <li class="govuk-service-navigation__item">
+            <a class="govuk-service-navigation__link" href="#">
+              QA assignment
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+{{ govukBackLink({
+text: messages__button__back,
+href: "javascript:window.history.back();"
+}) }}
+
+{% endblock beforeContent %}
+
+{% block content %}
+
+<script type="text/javascript" src="/public/javascripts/accessible-autocomplete.min.js"></script>
+<link rel="stylesheet" href="/public/javascripts/accessible-autocomplete.min.css" />
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+   {% from "govuk/components/select/macro.njk" import govukSelect %}
+
+
+    <!--<span class="govuk-caption-xl">
+      ETA cases
+    </span>-->
+    <h1 class="govuk-heading-xl">
+      Task list
+    </h1>
+
+    {% include "current/includes/filter.html" %}
+
+</div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    {% include "current/includes/list-results.html" %}
+
+        {% from "govuk/components/button/macro.njk" import govukButton %}
+
+{{ govukButton({
+  text: "Action tasks"
+}) }}
+
+      <nav class="govuk-pagination" aria-label="Pagination" style="float: right;">
+
+      <ul class="govuk-pagination__list">
+        <li class="govuk-pagination__item govuk-pagination__item--current">
+        <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 1">
+        1
+        </a>
+        </li>
+        <li class="govuk-pagination__item">
+        <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 2" aria-current="page">
+        2
+        </a>
+        </li>
+        <li class="govuk-pagination__item">
+        <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 3">
+        3
+        </a>
+        </li>
+      </ul>
+
+      <div class="govuk-pagination__next">
+      <a class="govuk-link govuk-pagination__link" href="#" rel="next">
+      <span class="govuk-pagination__link-title">
+        Next<span class="govuk-visually-hidden"> page</span>
+      </span>
+      <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+        <path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
+      </svg>
+      </a>
+      </div>
+  </nav>
+
+
+
+  </div>
+</div>
+
+
+<script type="text/javascript">
+  // Country with dropdown field
+  accessibleAutocomplete.enhanceSelectElement({
+    selectElement: document.querySelector('#what-nationality')
+  })
+</script>
+
+<script type="text/javascript">
+  // Country with dropdown field
+  accessibleAutocomplete.enhanceSelectElement({
+    selectElement: document.querySelector('#what-nationality-b')
+  })
+</script>
+
+<script type="text/javascript">
+  // Country with dropdown field
+  accessibleAutocomplete.enhanceSelectElement({
+    selectElement: document.querySelector('#what-nationality2')
+  })
+</script>
+{% endblock content %}
