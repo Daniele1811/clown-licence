@@ -141,7 +141,48 @@ href: "javascript:window.history.back();"
       Clown licence applications
     </h1>
 
-    
+ {% set approvededStatus = {
+  tag: {
+        text: "Approved",
+        class: "govuk-tag--green"
+      }
+    } %}
+      
+      {% set incompleteStatus = { 
+        tag: { 
+          text: "Incomplete", 
+          class: "govuk-tag--red" 
+          } } %} 
+{# To switch between the completed and incomplete statues, use some inline logic within the component below, like this: "status: (completedStatus if ... else incompleteStatus)" #}
+
+
+<!--{{ govukTaskList({
+        idPrefix: "first-section",
+        items: [
+          {
+            title: {
+              text: "Identity details"
+            },
+            href: "cya-applications",
+            status: (approvedStatus if data["personal-details-checked"] == 'true' else incompleteStatus)
+          },
+          {
+            title: {
+              text: "Address"
+            },
+            href: "check-answers-address",
+            status: (aspprovedStatus if data['address-details-checked'] == 'true' else incompleteStatus)
+          },
+          {
+            title: {
+              text: "Contact details"
+            },
+            href: "check-answers-contact",
+            status: (approvedStatus if data['contact-details-checked'] == 'true' else incompleteStatus)
+          }
+        ]
+      }) }}-->
+
 
 <table class="govuk-table">
       <h2 class="govuk-heading-m">Process the applications in order starting from the top of the list</h2>
@@ -149,8 +190,8 @@ href: "javascript:window.history.back();"
        <thead class="govuk-table__head">
        <tr class="govuk-table__row">
       <th scope="col" class="govuk-table__header app-custom-class">Applicant name</th>
-      <th scope="col" class="govuk-table__header app-custom-class">Created by</th>
-      <th scope="col" class="govuk-table__header app-custom-class">Assignee</th>
+      <th scope="col" class="govuk-table__header app-custom-class">Reference</th>
+      <th scope="col" class="govuk-table__header app-custom-class">Date received</th>
       <th scope="col" class="govuk-table__header app-custom-class">Status</th>
       </tr>
       </thead>
@@ -158,145 +199,94 @@ href: "javascript:window.history.back();"
       <tr class="govuk-table__row">
      <td class="govuk-table__cell">
        <a href="" style="color:#1d70b8; text-decoration:none;">
-        <strong>Applicant name</strong>
+        <strong>Adam Acrobat</strong>
       </a>
       </td>     
-      <td class="govuk-table__cell">name@email.com <br/> 22 November 2023 - 20:41</td>
-      <td class="govuk-table__cell">name@email.com <br/> 22 November 2023 - 20:41</td>
+      <td class="govuk-table__cell">00015 </td>
+      <td class="govuk-table__cell">22 November 2023 - 20:41</td>
       <td class="govuk-table__cell"> 
-        <a href="" style="color:#1d70b8;">
-        Change
-      </a><br/>
-      <a href="" style="color:#1d70b8;">
-        Remove
+         </td>
+      </tr>
+      <tr class="govuk-table__row">
+     <td class="govuk-table__cell">
+      <a href="" style="color:#1d70b8; text-decoration:none;">
+        <strong>Joseph Jangles</strong>
       </a>
+      </td>      
+      <td class="govuk-table__cell">00014 </td>
+      <td class="govuk-table__cell">22 November 2023 - 20:41</td>
+      <td class="govuk-table__cell">
       </td>
       </tr>
       <tr class="govuk-table__row">
      <td class="govuk-table__cell">
       <a href="" style="color:#1d70b8; text-decoration:none;">
-        <strong>Applicant name</strong>
+        <strong>Jack Funnybones</strong>
       </a>
       </td>      
-      <td class="govuk-table__cell">name@email.com <br/> 22 November 2023 - 20:41</td>
-      <td class="govuk-table__cell">name@email.com <br/> 22 November 2023 - 20:41</td>
+      <td class="govuk-table__cell">00013 </td>
+      <td class="govuk-table__cell">22 November 2023 - 20:41</td>
       <td class="govuk-table__cell">
-       <a href="" style="color:#1d70b8;">
-        Change
-      </a><br/>
-      <a href="" style="color:#1d70b8;">
-        Remove
-      </a>
       </td>
       </tr>
       <tr class="govuk-table__row">
      <td class="govuk-table__cell">
       <a href="" style="color:#1d70b8; text-decoration:none;">
-        <strong>Applicant name</strong>
+        <strong>Lucky Smile-alot</strong>
       </a>
       </td>      
-      <td class="govuk-table__cell">name@email.com <br/> 22 November 2023 - 20:41</td>
-      <td class="govuk-table__cell">
-      </td>
-      <td class="govuk-table__cell">
-      <a href="" style="color:#1d70b8;">
-        Change
-      </a><br/>
-      <a href="" style="color:#1d70b8;">
-        Remove
-      </a>
-        </td>
-      </tr>
-      <tr class="govuk-table__row">
-     <td class="govuk-table__cell">
-      <a href="" style="color:#1d70b8; text-decoration:none;">
-        <strong>Applicant name</strong>
-      </a>
-      </td>      
-      <td class="govuk-table__cell">name@email.com <br/> 22 November 2023 - 20:41</td>
-      <td class="govuk-table__cell">name@email.com <br/> 22 November 2023 - 20:41</td>
+      <td class="govuk-table__cell">00012 </td>
+      <td class="govuk-table__cell">22 November 2023 - 20:41</td>
       <td class="govuk-table__cell"> 
-       <a href="" style="color:#1d70b8;">
-        Change
-      </a><br/>
-      <a href="" style="color:#1d70b8;">
-        Remove
-      </a>
-</td>
+       </td>
       </tr>
 
       <tr class="govuk-table__row">
      <td class="govuk-table__cell">
       <a href="" style="color:#1d70b8; text-decoration:none;">
-        <strong>Applicant name</strong>
+        <strong>Rudy the Great</strong>
       </a>
       </td>      
-      <td class="govuk-table__cell">name@email.com <br/> 22 November 2023 - 20:41</td>
-     <td class="govuk-table__cell">name@email.com <br/> 22 November 2023 - 20:41</td>
-      <td class="govuk-table__cell"> 
-        <a href="" style="color:#1d70b8;">
-        Change
-      </a><br/>
-      <a href="" style="color:#1d70b8;">
-        Remove
+      <td class="govuk-table__cell">00011 </td>
+      <td class="govuk-table__cell">22 November 2023 - 20:41</td>
+      <td class="govuk-table__cell">  
+      </tr>
+
+        <tr class="govuk-table__row">
+     <td class="govuk-table__cell">
+      <a href="" style="color:#1d70b8; text-decoration:none;">
+        <strong>Chloe Clown</strong>
       </a>
+      </td>      
+      <td class="govuk-table__cell">00010 </td>
+      <td class="govuk-table__cell">22 November 2023 - 20:41</td>
+      <td class="govuk-table__cell">  
+    </tr>
+
+        <tr class="govuk-table__row">
+     <td class="govuk-table__cell">
+      <a href="" style="color:#1d70b8; text-decoration:none;">
+        <strong>Nora Nonsense</strong>
+      </a>
+      </td>      
+      <td class="govuk-table__cell">00010 </td>
+      <td class="govuk-table__cell">22 November 2023 - 20:41</td>
+      <td class="govuk-table__cell"> 
       </td>
       </tr>
 
         <tr class="govuk-table__row">
      <td class="govuk-table__cell">
       <a href="" style="color:#1d70b8; text-decoration:none;">
-        <strong>Applicant name</strong>
+        <strong>Marky Magic</strong>
       </a>
       </td>      
-      <td class="govuk-table__cell">name@email.com <br/> 22 November 2023 - 20:41</td>
+      <td class="govuk-table__cell">00009 </td>
+      <td class="govuk-table__cell">22 November 2023 - 20:41</td>
       <td class="govuk-table__cell">
         </td>
       <td class="govuk-table__cell"> 
-        <a href="" style="color:#1d70b8;">
-        Change
-      </a><br/>
-      <a href="" style="color:#1d70b8;">
-        Remove
-      </a>
-      </td>
-      </tr>
-
-        <tr class="govuk-table__row">
-     <td class="govuk-table__cell">
-      <a href="" style="color:#1d70b8; text-decoration:none;">
-        <strong>Applicant name</strong>
-      </a>
-      </td>      
-      <td class="govuk-table__cell">name@email.com <br/> 22 November 2023 - 20:41</td>
-      <td class="govuk-table__cell">name@email.com <br/> 22 November 2023 - 20:41</td>
-      <td class="govuk-table__cell"> 
-        <a href="" style="color:#1d70b8;">
-        Change
-      </a><br/>
-      <a href="" style="color:#1d70b8;">
-        Remove
-      </a>
-      </td>
-      </tr>
-
-        <tr class="govuk-table__row">
-     <td class="govuk-table__cell">
-      <a href="" style="color:#1d70b8; text-decoration:none;">
-        <strong>Applicant name</strong>
-      </a>
-      </td>      
-      <td class="govuk-table__cell">name@email.com <br/> 22 November 2023 - 20:41</td>
-      <td class="govuk-table__cell">
-        </td>
-      <td class="govuk-table__cell"> 
-        <a href="" style="color:#1d70b8;">
-        Change
-      </a><br/>
-      <a href="" style="color:#1d70b8;">
-        Remove
-      </a>
-      </td>
+       </td>
       </tr>
 
         <tr class="govuk-table__row">
@@ -335,6 +325,100 @@ href: "javascript:window.history.back();"
       </td>
       </tr>
       
+      </tr>
+      <tr class="govuk-table__row">
+     <td class="govuk-table__cell">
+      <a href="" style="color:#1d70b8; text-decoration:none;">
+        <strong>Applicant name</strong>
+      </a>
+      </td>      
+      <td class="govuk-table__cell">name@email.com <br/> 22 November 2023 - 20:41</td>
+      <td class="govuk-table__cell">name@email.com <br/> 22 November 2023 - 20:41</td>
+      <td class="govuk-table__cell"> 
+       <a href="" style="color:#1d70b8;">
+        Change
+      </a><br/>
+      <a href="" style="color:#1d70b8;">
+        Remove
+      </a>
+</td>
+      </tr>
+
+      </tr>
+      <tr class="govuk-table__row">
+     <td class="govuk-table__cell">
+      <a href="" style="color:#1d70b8; text-decoration:none;">
+        <strong>Applicant name</strong>
+      </a>
+      </td>      
+      <td class="govuk-table__cell">name@email.com <br/> 22 November 2023 - 20:41</td>
+      <td class="govuk-table__cell">name@email.com <br/> 22 November 2023 - 20:41</td>
+      <td class="govuk-table__cell"> 
+       <a href="" style="color:#1d70b8;">
+        Change
+      </a><br/>
+      <a href="" style="color:#1d70b8;">
+        Remove
+      </a>
+</td>
+      </tr>
+
+      </tr>
+      <tr class="govuk-table__row">
+     <td class="govuk-table__cell">
+      <a href="" style="color:#1d70b8; text-decoration:none;">
+        <strong>Applicant name</strong>
+      </a>
+      </td>      
+      <td class="govuk-table__cell">name@email.com <br/> 22 November 2023 - 20:41</td>
+      <td class="govuk-table__cell">name@email.com <br/> 22 November 2023 - 20:41</td>
+      <td class="govuk-table__cell"> 
+       <a href="" style="color:#1d70b8;">
+        Change
+      </a><br/>
+      <a href="" style="color:#1d70b8;">
+        Remove
+      </a>
+</td>
+      </tr>
+
+      </tr>
+      <tr class="govuk-table__row">
+     <td class="govuk-table__cell">
+      <a href="" style="color:#1d70b8; text-decoration:none;">
+        <strong>Applicant name</strong>
+      </a>
+      </td>      
+      <td class="govuk-table__cell">name@email.com <br/> 22 November 2023 - 20:41</td>
+      <td class="govuk-table__cell">name@email.com <br/> 22 November 2023 - 20:41</td>
+      <td class="govuk-table__cell"> 
+       <a href="" style="color:#1d70b8;">
+        Change
+      </a><br/>
+      <a href="" style="color:#1d70b8;">
+        Remove
+      </a>
+</td>
+      </tr>
+
+      </tr>
+      <tr class="govuk-table__row">
+     <td class="govuk-table__cell">
+      <a href="" style="color:#1d70b8; text-decoration:none;">
+        <strong>Applicant name</strong>
+      </a>
+      </td>      
+      <td class="govuk-table__cell">name@email.com <br/> 22 November 2023 - 20:41</td>
+      <td class="govuk-table__cell">name@email.com <br/> 22 November 2023 - 20:41</td>
+      <td class="govuk-table__cell"> 
+       <a href="" style="color:#1d70b8;">
+        Change
+      </a><br/>
+      <a href="" style="color:#1d70b8;">
+        Remove
+      </a>
+</td>
+      </tr>
       
       </tbody>
       </table>
