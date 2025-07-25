@@ -148,17 +148,17 @@ href: "javascript:window.history.back();"
       }
     } %}
 
-{% set RefferedStatus = { 
+     {% set incompleteStatus = { 
         tag: { 
-          text: "Referred", 
+          text: "Incomplete", 
           class: "govuk-tag--blue" 
           } } %} 
 
-{% set OnHoldStatus = { 
-        tag: { 
-          text: "On hold", 
-          class: "govuk-tag--yellow" 
-          } } %} 
+    {% set incompleteStatus = {
+  tag: {
+    text: "Incomplete",
+    class: "govuk-tag--red"
+    } } %} 
 {# To switch between the completed and incomplete statues, use some inline logic within the component below, like this: "status: (completedStatus if ... else incompleteStatus)" #}
 
 
@@ -196,7 +196,6 @@ href: "javascript:window.history.back();"
        <!--<caption class="govuk-table__caption govuk-table__caption--m">Month you apply</caption>-->
        
        <thead class="govuk-table__head">
-       
        <tr class="govuk-table__row">
         
         <!-- Applicant Name column (sortable alphabetically) -->
@@ -211,62 +210,74 @@ href: "javascript:window.history.back();"
       <!-- Status column (sortable by status type) -->
       <th scope="col" class="govuk-table__header" data-sort="status">Status</th>
       </tr>
-
       </thead>
 
   <tbody class="govuk-table__body">
 
-   <tr class="govuk-table__row">
+   
+      
+     <!--<status: (inProgressStatus if data['application-checked'] == 'true' else incompleteStatus)>-->
+     <tr class="govuk-table__row">
      <td class="govuk-table__cell">
        <a href="" style="color:#1d70b8; text-decoration:none;">
         <strong>Adam Acrobat</strong>
       </a>
     </td>     
-      <td class="govuk-table__cell">0015 </td>
-      <td class="govuk-table__cell">22 November 2024 - 20:41</td>
-      <td class="govuk-table__cell">Approved</td>
-        <!--<{{govukTag({
-              text: "Approved",
-              classes: "govuk-tag--green"
-            })}}>-->
-      
-       
-     <!--<status: (inProgressStatus if data['application-checked'] == 'true' else incompleteStatus)>-->
+    <td class="govuk-table__cell" data-sort-value="0015">0015 </td>
+      <td class="govuk-table__cell" data-sort-value="2025-07-22 20:41">22 July 2025 - 20:41</td>
+      <td class="govuk-table__cell" data-sort-value="Incomplete">
+        {{govukTag({
+              text: "Incomplete",
+              classes: "govuk-tag--red"
+            })}}
+       </td>
       </tr>
-      <tr class="govuk-table__row">
+    
+    <tr class="govuk-table__row">
      <td class="govuk-table__cell">
       <a href="" style="color:#1d70b8; text-decoration:none;">
         <strong>Joseph Jangles</strong>
       </a>
       </td>      
-      <td class="govuk-table__cell">0014 </td>
-      <td class="govuk-table__cell">03 July 2025 - 16:11</td>
-      <td class="govuk-table__cell">{{govukTag({
+      <td class="govuk-table__cell" data-sort-value="0014">0014 </td>
+      <td class="govuk-table__cell" data-sort-value="2025-07-03 16:11">03 July 2025 - 16:11</td>
+      <td class="govuk-table__cell" data-sort-value="Referred">
+        {{govukTag({
               text: "Referred",
               classes: "govuk-tag--blue"
             })}}
       </td>
-      </tr>
-      <tr class="govuk-table__row">
+    </tr>
+    
+    <tr class="govuk-table__row">
      <td class="govuk-table__cell">
       <a href="" style="color:#1d70b8; text-decoration:none;">
         <strong>Jack Funnybones</strong>
       </a>
       </td>      
-      <td class="govuk-table__cell">0013 </td>
-      <td class="govuk-table__cell">28 April 2025 - 09:20</td>
-      <td class="govuk-table__cell">
+      <td class="govuk-table__cell" data-sort-value="0013">0013 </td>
+      <td class="govuk-table__cell" data-sort-value="2025-04-28 09:20">28 April 2025 - 09:20</td>
+      <td class="govuk-table__cell" data-sort-value="On Hold">
+        {{govukTag({
+              text: "On hold",
+              classes: "govuk-tag--yellow"
+            })}}
       </td>
-      </tr>
-      <tr class="govuk-table__row">
+     </tr>
+      
+    <tr class="govuk-table__row">
      <td class="govuk-table__cell">
       <a href="" style="color:#1d70b8; text-decoration:none;">
         <strong>Lucky Smile-alot</strong>
       </a>
       </td>      
-      <td class="govuk-table__cell">0012 </td>
-      <td class="govuk-table__cell">16 March 2025 - 11:36</td>
-      <td class="govuk-table__cell"> 
+      <td class="govuk-table__cell" data-sort-value="0012">0012 </td>
+      <td class="govuk-table__cell" data-sort-value="2025-03-16 11:36">16 March 2025 - 11:36</td>
+      <td class="govuk-table__cell" data-sort-value="Approved"> 
+        {{govukTag({
+              text: "Approved",
+              classes: "govuk-tag--green"
+            })}}
        </td>
       </tr>
 
@@ -276,9 +287,13 @@ href: "javascript:window.history.back();"
         <strong>Rudy the Great</strong>
       </a>
       </td>      
-      <td class="govuk-table__cell">0011 </td>
-      <td class="govuk-table__cell">22 December 2024 - 09:54</td>
-      <td class="govuk-table__cell">  
+      <td class="govuk-table__cell" data-sort-value="0011">0011 </td>
+      <td class="govuk-table__cell" data-sort-value="2025-03-15 14:21">15 March 2025 - 14:21</td>
+      <td class="govuk-table__cell" data-sort-value="Approved">
+        {{govukTag({
+              text: "Approved",
+              classes: "govuk-tag--green"
+            })}}  
       </tr>
 
         <tr class="govuk-table__row">
@@ -287,9 +302,13 @@ href: "javascript:window.history.back();"
         <strong>Chloe Clown</strong>
       </a>
       </td>      
-      <td class="govuk-table__cell">0010 </td>
-      <td class="govuk-table__cell">09 January 2025 - 09:21</td>
-      <td class="govuk-table__cell">  
+      <td class="govuk-table__cell" data-sort-value="0010">0010 </td>
+      <td class="govuk-table__cell" data-sort-value="2025-02-09 10:03">09 February 2025 - 10:03</td>
+      <td class="govuk-table__cell" data-sort-value="Approved">
+        {{govukTag({
+              text: "Approved",
+              classes: "govuk-tag--green"
+            })}}  
     </tr>
 
         <tr class="govuk-table__row">
@@ -298,9 +317,13 @@ href: "javascript:window.history.back();"
         <strong>Nora Nonsense</strong>
       </a>
       </td>      
-      <td class="govuk-table__cell">0009 </td>
-      <td class="govuk-table__cell">22 March 2025 - 14:29</td>
-      <td class="govuk-table__cell"> 
+      <td class="govuk-table__cell" data-sort-value="0009">0009 </td>
+      <td class="govuk-table__cell" data-sort-value="2025-02-07 14:27">07 February 2025 - 14:27</td>
+      <td class="govuk-table__cell" data-sort-value="Referred"> 
+        {{govukTag({
+              text: "On hold",
+              classes: "govuk-tag--yellow"
+            })}}
       </td>
       </tr>
 
@@ -310,26 +333,30 @@ href: "javascript:window.history.back();"
         <strong>Marky Magic</strong>
       </a>
       </td>      
-      <td class="govuk-table__cell">0008 </td>
-      <td class="govuk-table__cell">29 June 2025 - 09:57</td>
-      <td class="govuk-table__cell">
+      <td class="govuk-table__cell" data-sort-value="0008">0008 </td>
+      <td class="govuk-table__cell" data-sort-value="2025-01-29 09:57">29 January 2025 - 09:57</td>
+      <td class="govuk-table__cell" data-sort-value="Approved">
+        {{govukTag({
+              text: "Approved",
+              classes: "govuk-tag--green"
+            })}}  
         </td>
-      <td class="govuk-table__cell"> 
-       </td>
       </tr>
 
-        <tr class="govuk-table__row">
+    <tr class="govuk-table__row">
      <td class="govuk-table__cell">
       <a href="" style="color:#1d70b8; text-decoration:none;">
         <strong>Bubbles McGiggle</strong>
       </a>
       </td>      
-     <td class="govuk-table__cell">0007 </td>
-      <td class="govuk-table__cell">07 February 2025 - 18:22</td>
-      <td class="govuk-table__cell">
+     <td class="govuk-table__cell" data-sort-value="0007">0007 </td>
+      <td class="govuk-table__cell" data-sort-value="2025-01-14 16:12">14 January 2025 - 16:12</td>
+      <td class="govuk-table__cell" data-sort-value="Approved">
+        {{govukTag({
+              text: "Approved",
+              classes: "govuk-tag--green"
+            })}}  
         </td>
-       
-       </td>
       </tr>
 
         <tr class="govuk-table__row">
@@ -338,13 +365,32 @@ href: "javascript:window.history.back();"
         <strong>Fizzy McBounce</strong>
       </a>
       </td>      
-      <td class="govuk-table__cell">0006 </td>
-      <td class="govuk-table__cell">08 February 2025 - 21:40</td>
-      <td class="govuk-table__cell">
-      
-      </td>
+      <td class="govuk-table__cell" data-sort-value="0006">0006 </td>
+      <td class="govuk-table__cell" data-sort-value="2024-12-20 13:33">20 December 2024 - 13:33</td>
+      <td class="govuk-table__cell" data-sort-value="Approved">
+        {{govukTag({
+              text: "Approved",
+              classes: "govuk-tag--green"
+            })}}  
+        </td>
       </tr>
-      
+
+  <tr class="govuk-table__row">
+     <td class="govuk-table__cell">
+      <a href="" style="color:#1d70b8; text-decoration:none;">
+        <strong>Jingles McFlip</strong>
+      </a>
+      </td>      
+      <td class="govuk-table__cell" data-sort-value="0005">0005 </td>
+      <td class="govuk-table__cell" data-sort-value="2024-11-29 15:08">29 November 2024 - 15:08</td>
+      <td class="govuk-table__cell" data-sort-value="Approved">
+       {{govukTag({
+              text: "Approved",
+              classes: "govuk-tag--green"
+            })}}  
+     </td>
+   </tr>
+
       </tr>
       <tr class="govuk-table__row">
      <td class="govuk-table__cell">
@@ -352,37 +398,29 @@ href: "javascript:window.history.back();"
         <strong>Daisy Sprinkles</strong>
       </a>
       </td>      
-      <td class="govuk-table__cell">0005 </td>
-      <td class="govuk-table__cell">22 November 2024 - 20:20</td>
-      <td class="govuk-table__cell">
-       
-</td>
+      <td class="govuk-table__cell" data-sort-value="0004">0004 </td>
+      <td class="govuk-table__cell" data-sort-value="2024-11-22 20:20">22 November 2024 - 20:20</td>
+      <td class="govuk-table__cell" data-sort-value="Approved">
+        {{govukTag({
+                text: "Approved",
+                classes: "govuk-tag--green"
+              })}}
+     </td>
       </tr>
 
-      </tr>
-      <tr class="govuk-table__row">
-     <td class="govuk-table__cell">
-      <a href="" style="color:#1d70b8; text-decoration:none;">
-        <strong>Jingles McFlip</strong>
-      </a>
-      </td>      
-      <td class="govuk-table__cell">0004 </td>
-      <td class="govuk-table__cell">29 November 2024 - 15:08</td>
-      <td class="govuk-table__cell">
-       
-</td>
-      </tr>
-
-      </tr>
       <tr class="govuk-table__row">
      <td class="govuk-table__cell">
       <a href="" style="color:#1d70b8; text-decoration:none;">
         <strong>Taffy Bumblebliss</strong>
       </a>
       </td>      
-      <td class="govuk-table__cell">0003 </td>
-      <td class="govuk-table__cell">01 November 2024 - 12:59</td>
-      <td class="govuk-table__cell">
+      <td class="govuk-table__cell" data-sort-value="0003">0003 </td>
+      <td class="govuk-table__cell" data-sort-value="2024-11-01 12:59">01 November 2024 - 12:59</td>
+      <td class="govuk-table__cell" data-sort-value="Approved">
+         {{govukTag({
+                text: "Approved",
+                classes: "govuk-tag--green"
+              })}}
        </td>
       </tr>
 
@@ -393,12 +431,13 @@ href: "javascript:window.history.back();"
         <strong>Lulu Twinkletoes</strong>
       </a>
       </td>      
-      <td class="govuk-table__cell">0002 </td>
-      <td class="govuk-table__cell">22 February 2025 - 11:31</td>
-      <td class="govuk-table__cell">{{govukTag({
-              text: "On hold",
-              classes: "govuk-tag--yellow"
-            })}}
+      <td class="govuk-table__cell" data-sort-value="0002">0002 </td>
+      <td class="govuk-table__cell" data-sort-value="2024-10-17 11:31">17 October 2024 - 11:31</td>
+      <td class="govuk-table__cell" data-sort-value="Approved">
+         {{govukTag({
+                text: "Approved",
+                classes: "govuk-tag--green"
+              })}}
        </td>
       </tr>
 
@@ -408,9 +447,10 @@ href: "javascript:window.history.back();"
       <a href="cya-0001" style="color:#1d70b8; text-decoration:none;">
         <strong>Snappy Doodle</strong>
       </td>      
-      <td class="govuk-table__cell">0001 </td>
-      <td class="govuk-table__cell">28 May 2024 - 09:18</td>
-      <td class="govuk-table__cell">{{govukTag({
+      <td class="govuk-table__cell" data-sort-value="0001">0001 </td>
+      <td class="govuk-table__cell" data-sort-value="2024-09-29 18:40">29 September 2024 - 18:40</td>
+      <td class="govuk-table__cell" data-sort-value="Approved">
+        {{govukTag({
               text: "Approved",
               classes: "govuk-tag--green"
             })}}

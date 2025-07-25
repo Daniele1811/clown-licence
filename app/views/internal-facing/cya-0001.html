@@ -1,0 +1,213 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+      <span class="govuk-caption-xl">
+        Clown licence applications
+       </span>
+       <h1 class="govuk-heading-xl">
+      Check the answers for Snappy Doodle's application
+       </h1>
+      
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Name"
+            },
+            value: {
+              text: "Answer 1"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Question 1"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Date of birth"
+            },
+            value: {
+              text: "Answer 2"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Question 2"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Identity document"
+            },
+            value: {
+              text: "Answer 3"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Question 3"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Address"
+            },
+            value: {
+              text: "Answer 4"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Question 4"
+              }
+              ]
+            }
+            
+          }
+          ,
+          {
+            key: {
+              text: "Clown skills"
+            },
+            value: {
+              text: "Answer 5"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Question 5"
+              }
+              ]
+            }
+            
+          },
+          {
+            key: {
+              text: "Physical skills"
+            },
+            value: {
+              text: "Answer 6"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Question 6"
+              }
+              ]
+            }
+            
+          },
+          {
+            key: {
+              text: "Country of training"
+            },
+            value: {
+              text: "Answer 7"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Question 7"
+              }
+              ]
+            }
+            
+          },
+          {
+            key: {
+              text: "Places you have worked"
+            },
+            value: {
+              text: "Answer 8"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Question 8"
+              }
+              ]
+            }
+            
+          }
+        ]
+      }) }}
+
+      
+
+
+
+      <form action="applications" method="post" novalidate>
+       <input type="hidden" name="application-checked" value="true">
+
+
+        {{ govukRadios({
+          name: "decision",
+          fieldset: {
+            legend: {
+              html: "What is your decision?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "On hold",
+              text: "Put on hold"
+            },
+            {
+              value: "Referred",
+              text: "Refer to a supervisor"
+            },
+            {
+              value: "Approved",
+              text: "Approve"
+            }
+          ]
+        }) }}
+        {{ govukButton({
+          text: "Submit"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}
